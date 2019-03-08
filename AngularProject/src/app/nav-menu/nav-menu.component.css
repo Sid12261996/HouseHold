@@ -21,7 +21,7 @@ li.link-active a{
     left: 0;
     right: 0;
     z-index: 1;
-   
+    background-color: whitesmoke;
 }
 
 @media (min-width: 1024px) {
