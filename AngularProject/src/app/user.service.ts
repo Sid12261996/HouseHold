@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
 import {AppUser} from './app-user'
+import { stringify } from 'querystring';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({  
   providedIn: 'root'  
@@ -16,6 +18,7 @@ export class UserService {
     return 'root';
   }
   Url:string = 'https://apiforhouseholdrapitup20190308031732.azurewebsites.net/Api/';
+  countryApi: string='https://restcountries.eu/rest/v2/all';
 RegisterUser(user: AppUser): Observable<AppUser>{
 if(user.Username!=null){
   return this.http.post<AppUser>(
@@ -30,6 +33,15 @@ if(user.Username!=null){
   );
 }
 
+
+
+}
+
+public getCountry():Observable<object>{
+return this.http.get<JSON>(this.countryApi).pipe(
+  tap((data:object) => console.log(`added User w/ id=${data}`)),
+  catchError(this.handleError<object>('RegisterUser'))
+);;
 }
 
  
