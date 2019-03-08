@@ -15,11 +15,11 @@ export class UserService {
   private newMethod() {
     return 'root';
   }
-
+  Url:string = 'https://apiforhouseholdrapitup20190308031732.azurewebsites.net/Api/';
 RegisterUser(user: AppUser): Observable<AppUser>{
 if(user.Username!=null){
   return this.http.post<AppUser>(
-    'http://localhost:52035/Api/Account/Register',
+    this.Url+'Account/Register',
     user,
     {
       headers: new HttpHeaders({'Content-Type':'application/json' })
