@@ -41,7 +41,14 @@ User: AppUser[];
  
    
  }
-
+ public country:object;
+Country():void{
+  this._loginservice.getCountry().subscribe(data=>{
+    this.country= data;
+    console.log(data);
+    
+  })
+}
 
 
 }
