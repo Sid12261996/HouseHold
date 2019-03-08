@@ -1,7 +1,11 @@
 <div class="container">
-  <h2>Register</h2>
- 
-   <form action="/login-user"  [formGroup]="formFields" (ngSubmit)="Register()" >
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+  
+  <h2 align="center"><b>Register</b></h2>
+  <div class="row">
+   <form action="/log-in"  [formGroup]="formFields" (ngSubmit)="Register()" >
     <div class="form-group">
       <label for="usr">Name:</label>
       <input type="text" class="form-control" id="usr" formControlName="Username" required> 
@@ -11,24 +15,24 @@
         
         <input type="email" class="form-control" id="email" formControlName="Email" required>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         
       <label for="pwd">Password:</label>
-      <div class="col-md-6">
+      <div>
       <input type="password" class="form-control" id="pwd" formControlName="Password" required>
       </div>
       <label for="cpwd">Confirm Password:</label>
-      <div class="col-md-6">
+      <div>
       <input type="password" class="form-control" id="cpwd" formControlName="ConfirmPassword"  required>
     </div>
 
     
     </div>
 
-    <div class="form-group row">
+    <div class="form-group">
         
         <label for="pwd">Phonenumber:</label>
-        <div class="col-md-6">
+        <div>
             <input type="number" class="form-control" id="Phonenumber" formControlName="PhoneNumber" required>
         </div>
       </div>
@@ -62,9 +66,15 @@
     </div>
     <div class="form-group">
      
-    <button type="submit" class="btn btn-primary" >Submit</button></div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
   </form>
+  </div>
+  </div>
+  <div class="col-md-3"></div>
+  </div>
 </div>
+
 <div><br/><br/><hr>
     Do You Already have an Account then <a href="/log-in">Login</a>
 </div>

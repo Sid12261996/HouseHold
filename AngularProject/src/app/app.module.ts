@@ -13,6 +13,8 @@ import { from } from 'rxjs';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user.service';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { UserService } from './user.service';
     RegistrationComponent,
     LogInComponent,
     NavMenuComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
