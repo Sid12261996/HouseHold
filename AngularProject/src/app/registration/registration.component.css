@@ -1,5 +1,7 @@
-.container{
-    margin-top: 50px;
-    background-color: lightgray;
-    border-radius: 50px;
-}
+
+
+.input{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    }
