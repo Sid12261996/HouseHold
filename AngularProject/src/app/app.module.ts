@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user.service';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AboutComponent } from './about/about.component';
     NavMenuComponent,
     HomeComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
