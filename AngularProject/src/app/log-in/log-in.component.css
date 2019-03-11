@@ -1,0 +1,10 @@
+.container{
+    background-color: #f1f4f7;
+    min-height: 100%;
+}
+
+input{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    }
