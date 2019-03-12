@@ -8,7 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LanguageComponent } from './components/header/language/language.component';
 import { FontSizeComponent } from './components/header/font-size/font-size.component';
 import { RegisterComponent } from './components/header/register/register.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material';
+import { BodyComponent } from './components/body/body.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LanguageComponent,
     FontSizeComponent,
     RegisterComponent,
-    NgbModule
-    
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
-    
+    BrowserAnimationsModule,
+    MaterialModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
