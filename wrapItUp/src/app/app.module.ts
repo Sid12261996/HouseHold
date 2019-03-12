@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LanguageComponent } from './components/header/language/language.component';
 import { FontSizeComponent } from './components/header/font-size/font-size.component';
 import { RegisterComponent } from './components/header/register/register.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,13 @@ import { RegisterComponent } from './components/header/register/register.compone
     LanguageComponent,
     FontSizeComponent,
     RegisterComponent,
+    NgbModule
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule.forRoot(),
     
   ],
   providers: [],
