@@ -1,8 +1,4 @@
-import { LoginComponent } from './login/login.component';
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
-import { RegisterComponent } from './register/register.component';
-import { PopUpService } from 'src/app/services/pop-up.service';
 
 @Component({
   selector: 'app-header',
@@ -13,12 +9,9 @@ import { PopUpService } from 'src/app/services/pop-up.service';
 
 export class HeaderComponent implements OnInit {
   
-  ngOnInit() {
-    
-  }
- constructor(public dynamicServic:PopUpService){}
+  constructor() { }
 
- get dynamicService(){
-return this.dynamicServic;
- }
+  ngOnInit() {
+  }
+
 }

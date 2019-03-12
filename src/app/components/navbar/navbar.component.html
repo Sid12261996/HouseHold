@@ -1,14 +1,30 @@
-<mat-toolbar class="nav">
-  <mat-toolbar-row class="nav">
-      <button mat-flat-button routerLink="" class="nav"><b>Wrap It UP</b></button>
-      <button mat-flat-button [routerLink]="[{ outlets: {body: ['Index'] } }]" >Index</button>
-      <button mat-flat-button routerLink="" class="nav">HOME</button>
-      <button mat-flat-button routerLink="" class="nav">HOME</button>
-      <span class="example-spacer"></span>
-      <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav" (click)="RegisterPopUp()">Register</button>
-      <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav" (click)="LoginPopUp()">LogIn</button>
-    <button *ngIf="UserIn()" mat-flat-button routerLink="" class="nav" (click)="Logout()">LogOut</button>
-    <button *ngIf="UserIn()" mat-flat-button [routerLink]="[{ outlets: {body: ['Profile'] } }]" class="nav">Profile</button>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="#">Logo</a>
 
-  </mat-toolbar-row>
-</mat-toolbar>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a class="nav-link" [routerLink]='["/"]'>
+            <i class="fa fa-university"></i> Home
+          </a>
+        </li>
+
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]='["/"]'>
+            <i class="fa fa-phone"></i> contactUs
+          </a>
+        </li>
+
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]='["/"]'>
+            <i class="fa fa-info-circle"></i> AboutUs
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
