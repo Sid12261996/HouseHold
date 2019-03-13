@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/header/register/register.compone
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { BodyComponent } from './components/body/body.component';
+import { LoginComponent } from './components/header/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BodyComponent } from './components/body/body.component';
     FontSizeComponent,
     RegisterComponent,
     BodyComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { BodyComponent } from './components/body/body.component';
     MaterialModule   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RegisterComponent,LoginComponent]
 })
 export class AppModule { }

@@ -7,6 +7,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [MatButtonModule, 
@@ -17,7 +19,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
             MatToolbarModule,
             MatIconModule ,
             MatSlideToggleModule,
-            MatBottomSheetModule
+            MatBottomSheetModule,
+            MatDialogModule,
+            MatInputModule
         ],
 
 
@@ -29,7 +33,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
             MatToolbarModule,
             MatIconModule,
             MatSlideToggleModule,
-            MatBottomSheetModule
+            MatBottomSheetModule,
+            MatDialogModule,
+            MatInputModule
         ],
 })
 export class MaterialModule { }
