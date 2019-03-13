@@ -1,30 +1,10 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-    <a class="navbar-brand" href="#">Logo</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a class="nav-link" [routerLink]='["/"]'>
-            <i class="fa fa-university"></i> Home
-          </a>
-        </li>
-
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link" [routerLink]='["/"]'>
-            <i class="fa fa-phone"></i> contactUs
-          </a>
-        </li>
-
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link" [routerLink]='["/"]'>
-            <i class="fa fa-info-circle"></i> AboutUs
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <button mat-flat-button color="primary" routerLink="">HOME</button>
+      <button mat-flat-button color="primary" routerLink="">HOME</button>
+      <button mat-flat-button color="primary" routerLink="">HOME</button>
+      <button mat-flat-button color="primary" routerLink="">HOME</button>
+      <span class="example-spacer"></span>
+      <button mat-flat-button color="primary" routerLink="">HOME</button>
+  </mat-toolbar-row>
+</mat-toolbar>
