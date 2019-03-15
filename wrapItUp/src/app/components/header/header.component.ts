@@ -22,11 +22,12 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.width = "300%";
+    //dialogConfig.height = "900px";
     this.dialog.open(RegisterComponent)
   }
   openDialog2(){
     const dialogConfig2 = new MatDialogConfig();
     dialogConfig2.disableClose = true;
-    this.dialog.open(LoginComponent)
+    this.dialog2.open(LoginComponent)
   }
 }
