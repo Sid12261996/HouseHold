@@ -41,7 +41,7 @@ public getCountry():Observable<object>{
 return this.http.get<JSON>(this.countryApi).pipe(
   tap((data:object) => console.log(`added User w/ id=${data}`)),
   catchError(this.handleError<object>('RegisterUser'))
-);;
+);
 }
 
  
