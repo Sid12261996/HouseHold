@@ -19,6 +19,8 @@ export class UserService {
   }
   Url:string = 'https://apiforhouseholdrapitup20190308031732.azurewebsites.net/Api/';
   countryApi: string='https://restcountries.eu/rest/v2/all';
+
+
 RegisterUser(user: AppUser): Observable<AppUser>{
 if(user.Username!=null){
   return this.http.post<AppUser>(
@@ -32,9 +34,11 @@ if(user.Username!=null){
     catchError(this.handleError<AppUser>('RegisterUser'))
   );
 }
+}
 
+GetUserByEmail( email:string):Observable<AppUser[]>{
 
-
+  return this.http.get<AppUser[]>(this.Url+'GetUserByEmail?Email='+email);
 }
 
 public getCountry():Observable<object>{

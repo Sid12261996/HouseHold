@@ -13,7 +13,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   register = "THis is REgisters";
   formFields:FormGroup;
-User: AppUser[];
+
  constructor(private _loginservice : UserService, private route:Router) { }
 
  ngOnInit() {
@@ -21,9 +21,7 @@ User: AppUser[];
      Username :new FormControl(),
      Email :new FormControl(),
      Password :new FormControl(),
- 
- ConfirmPassword :new FormControl(),
-     
+     ConfirmPassword :new FormControl(),
      PhoneNumber :new FormControl(),
      Address :new FormControl(),
      Country :new FormControl(),
@@ -50,5 +48,12 @@ Country():void{
     console.log(data);
     
   })
+ 
+}
+
+user$ : AppUser[];
+users():void{
+
+  this._loginservice.GetUserByEmail('sidharthrkc@gmail.com').subscribe(data=>{this.user$=data})
 }
 }
