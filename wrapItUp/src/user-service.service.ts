@@ -17,11 +17,14 @@ export class UserService {
   private newMethod() {
     return 'root';
   }
+  currentUser:AppUser;
   Url:string = 'https://apiforhouseholdrapitup20190308031732.azurewebsites.net/Api/';
+  urlloC:string = 'http://localhost:52035/Api/';
   countryApi: string='https://restcountries.eu/rest/v2/all';
 
 
 RegisterUser(user: AppUser): Observable<AppUser>{
+  this.currentUser=user;
 if(user.Username!=null){
   return this.http.post<AppUser>(
     this.Url+'Account/Register',
@@ -38,20 +41,18 @@ if(user.Username!=null){
 
 GetUserByEmail( email:string):Observable<AppUser[]>{
 
-  return this.http.get<AppUser[]>(this.Url+'GetUserByEmail?Email='+email);
+  return this.http.get<AppUser[]>(this.Url+'Account/GetUserByEmail?Email='+email);
 }
 
-public getCountry():Observable<object>{
-return this.http.get<JSON>(this.countryApi).pipe(
-  tap((data:object) => console.log(`added User w/ id=${data}`)),
-  catchError(this.handleError<object>('RegisterUser'))
-);
+public getCountry():Observable<JsonPipe>{
+return this.http.get<JsonPipe>(this.countryApi)
+;
 }
 
- 
+ errorModel:object;
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
-
+    this.errorModel=error;
     // TODO: send the error to remote logging infrastructure
     console.error(error); // log to console instead
 
