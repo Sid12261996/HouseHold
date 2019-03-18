@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AppUser } from 'src/app-user';
 import { FormGroup, FormControl } from '@angular/forms';
 
+import { JsonPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   register = "THis is REgisters";
   formFields:FormGroup;
+   Email:string;
 
+
+ 
  constructor(private _loginservice : UserService, private route:Router) { }
 
  ngOnInit() {
@@ -28,32 +33,44 @@ export class RegisterComponent implements OnInit {
      State :new FormControl()
 
    });
+
+   this.Country();
+   
    
  }
+ registered:boolean = false;
  Register():void{
-   console.log(this.formFields.value);
+   console.log(this._loginservice.errorModel);
    
     this._loginservice.RegisterUser(this.formFields.value).subscribe( data => {
       console.log(data);
-      
-      this.route.navigate(['log-in'])
+      if(data){this.registered = true}
+      this.route.navigate(['index'])
     });
  
    
  }
- public country:object;
-Country():void{
+ public country$:JsonPipe;
+ state$:JsonPipe[];
+ Country():void{
   this._loginservice.getCountry().subscribe(data=>{
-    this.country= data;
-    console.log(data);
+    this.country$= data;
+   
     
   })
  
 }
+state():void{
+this._loginservice.getCountry().subscribe(
+  data=>{}
+);
 
-user$ : AppUser[];
-users():void{
-
-  this._loginservice.GetUserByEmail('sidharthrkc@gmail.com').subscribe(data=>{this.user$=data})
 }
+
+user$ :AppUser[];
+getUser():void{
+   this._loginservice.GetUserByEmail(this.formFields.value.Email).subscribe(data=>{this.user$ = data});
+}
+  
+
 }

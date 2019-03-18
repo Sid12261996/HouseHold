@@ -1,6 +1,6 @@
 export class AppUser {
     public Username: string;
-public Email:String;
+public Email:string;
 public Password: string;
 public ConfirmPassword: string;
 public PhoneNumber: number;
