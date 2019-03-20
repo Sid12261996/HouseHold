@@ -12,8 +12,8 @@ export class BodyComponent implements OnInit {
   constructor(private dataService:UserService) { }
 user$:AppUser[];
   ngOnInit() {
-    this.dataService.GetUserByEmail('shekharsaini@gmail.com').subscribe(data=>{this.user$=data;
-      console.log(data);
+    this.dataService.GetUserByEmail('sidharthrkc@gmail.com').subscribe(data=>{this.user$=data;
+    
     }
       );
   }

@@ -27,7 +27,7 @@ RegisterUser(user: AppUser): Observable<AppUser>{
   this.currentUser=user;
 if(user.Username!=null){
   return this.http.post<AppUser>(
-    this.Url+'Account/Register',
+    this.urlloC+'Account/Register',
     user,
     {
       headers: new HttpHeaders({'Content-Type':'application/json' })
@@ -41,7 +41,7 @@ if(user.Username!=null){
 
 GetUserByEmail( email:string):Observable<AppUser[]>{
 
-  return this.http.get<AppUser[]>(this.Url+'Account/GetUserByEmail?Email='+email);
+  return this.http.get<AppUser[]>(this.urlloC+'Account/GetUserByEmail?Email='+email);
 }
 
 public getCountry():Observable<JsonPipe>{

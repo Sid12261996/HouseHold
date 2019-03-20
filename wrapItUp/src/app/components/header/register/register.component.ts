@@ -5,6 +5,7 @@ import { AppUser } from 'src/app-user';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { JsonPipe } from '@angular/common';
+import { CountryService } from 'src/app/country.service';
 
 
 @Component({
@@ -15,11 +16,11 @@ import { JsonPipe } from '@angular/common';
 export class RegisterComponent implements OnInit {
   register = "THis is REgisters";
   formFields:FormGroup;
-   Email:string;
+ 
 
 
  
- constructor(private _loginservice : UserService, private route:Router) { }
+ constructor(private _loginservice : UserService, private route:Router,private countryService:CountryService) { }
 
  ngOnInit() {
    this.formFields = new FormGroup({
@@ -35,7 +36,8 @@ export class RegisterComponent implements OnInit {
    });
 
    this.Country();
-   
+
+
    
  }
  registered:boolean = false;
@@ -50,21 +52,27 @@ export class RegisterComponent implements OnInit {
  
    
  }
- public country$:JsonPipe;
- state$:JsonPipe[];
+ public country$:string[];
+ state$:string[];
  Country():void{
-  this._loginservice.getCountry().subscribe(data=>{
-    this.country$= data;
-   
+  this.country$= this.countryService.getCountry();
     
-  })
- 
-}
-state():void{
-this._loginservice.getCountry().subscribe(
-  data=>{}
-);
+   
 
+}
+States: string[];
+
+
+state():void{
+  var SelectedcountryName = this.formFields.value.Country;
+  if(SelectedcountryName!=null&&SelectedcountryName!= undefined)
+  {
+       
+        var AllState=this.countryService.getState();
+        var index=this.country$.indexOf(SelectedcountryName);
+        var states=AllState[index+1].split("|");
+        this.States= states;
+  }
 }
 
 user$ :AppUser[];
