@@ -24,18 +24,16 @@
     </mat-form-field>
    
 <mat-form-field>
-  <select matNativeControl required formControlName="Country" placeholder="Select Country" >
-    <option *ngFor='let country of country$' [value]='country.name'  >{{country.name}}</option>
+  <select matNativeControl required formControlName="Country" placeholder="Select Country" (click)='state()' >
+    <option *ngFor='let country of country$'  >{{country}}</option>
     
   </select>
 </mat-form-field>
 
 <mat-form-field>
-  <select matNativeControl required formControlName="State">
-    <option value="volvo">Select State</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
+  <select matNativeControl required formControlName="State" >
+    <option *ngFor='let states of States' >{{states}}</option>
+    
   </select>
 </mat-form-field>
 
