@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   openDialog(){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
+   
     dialogConfig.width = "300%";
     //dialogConfig.height = "900px";
     this.dialog.open(RegisterComponent)

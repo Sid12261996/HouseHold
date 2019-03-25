@@ -33,7 +33,7 @@ if(user.Username!=null){
       headers: new HttpHeaders({'Content-Type':'application/json' })
     }
   ).pipe(
-    tap((user:AppUser) => console.log(`added User w/ id=${user.Username}`)),
+    
     catchError(this.handleError<AppUser>('RegisterUser'))
   );
 }
