@@ -16,6 +16,7 @@ import {ReactiveFormsModule } from '@angular/forms'
 import { UserService } from 'src/user-service.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IndexComponent } from './components/body/index/index.component';
+import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { IndexComponent } from './components/body/index/index.component';
     BodyComponent,
     LoginComponent,
     IndexComponent,
+    WelcomepageComponent,
   ],
   imports: [
     BrowserModule,
