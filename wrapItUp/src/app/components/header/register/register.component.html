@@ -1,25 +1,30 @@
 <div class="example-container">
   <h1 *ngIf ='registered'></h1>
   <form [formGroup]="formFields" (ngSubmit)="Register()" >
-  <mat-label><h3 align = "center"> Register</h3></mat-label>
-    <mat-form-field>
-        <input matInput placeholder="User Name" type="text" formControlName="Username" required/>
-     
-      </mat-form-field>
-  <mat-form-field>
+    <mat-label><h3 align = "center"> Register</h3></mat-label>
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="User Name" type="text" formControlName="Username" required/>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
       <input matInput placeholder="Email" type="email" formControlName="Email" required/>
-   </mat-form-field>
-   <mat-form-field>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
       <input matInput placeholder="Password" type="password" formControlName="Password" required/>
     </mat-form-field>
-<mat-form-field>
-    <input matInput placeholder="Confirm password" type="password" formControlName="ConfirmPassword" required/>
-  </mat-form-field>
-<mat-form-field>
-    <input matInput placeholder="Phone Number" type="number" formControlName="PhoneNumber" required/> 
-   </mat-form-field>
-  <mat-form-field>
+
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="Confirm password" type="password" formControlName="ConfirmPassword" required/>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="Phone Number" type="number" formControlName="PhoneNumber" required/> 
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
       <input matInput placeholder="Address" type="text" formControlName="Address" />
+
    
     </mat-form-field>
    
@@ -39,7 +44,14 @@
 
 <button mat-raised-button color="primary">Register</button>
 </form>
+
 <a routerLink="/log-in" >log-in</a>
-</div>
+
+
+
+
+    
+
+    
 
 <router-outlet></router-outlet>
