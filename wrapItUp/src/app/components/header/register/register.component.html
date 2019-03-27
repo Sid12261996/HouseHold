@@ -28,30 +28,25 @@
    
     </mat-form-field>
    
-<mat-form-field>
+<mat-form-field class="col-md-6">
   <select matNativeControl required formControlName="Country" placeholder="Select Country" (click)='state()' >
     <option *ngFor='let country of country$'  >{{country}}</option>
     
   </select>
 </mat-form-field>
 
-<mat-form-field>
+<mat-form-field class="col-md-6">
   <select matNativeControl required formControlName="State" >
     <option *ngFor='let states of States' >{{states}}</option>
     
   </select>
 </mat-form-field>
-
-<button mat-raised-button color="primary">Register</button>
+<div class="text-center">
+  <button mat-raised-button color="primary">Register</button>
+</div>
 </form>
-
-<a (click)='loginOpen()' >log-in</a>
-
-
-
-
-    
-
-    
+<div class="login col-md-2">
+  <a (click)='loginOpen()'><b>Log-in</b></a>
+</div>
 
 <router-outlet></router-outlet>
