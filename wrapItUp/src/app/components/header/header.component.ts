@@ -2,6 +2,7 @@ import { LoginComponent } from './login/login.component';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
+import { PopUpService } from 'src/app/pop-up.service';
 
 @Component({
   selector: 'app-header',
@@ -15,19 +16,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   constructor(private dialog:MatDialog,
-              private dialog2:MatDialog          
+              private dialog2:MatDialog,
+              private popUps:PopUpService          
     ){}
 
-  openDialog(){
-    const dialogConfig = new MatDialogConfig();
-   
-    dialogConfig.width = "300%";
-    //dialogConfig.height = "900px";
-    this.dialog.open(RegisterComponent)
+    RegisterPopUp(){
+   this.popUps.openDialog();
   }
-  openDialog2(){
-    const dialogConfig2 = new MatDialogConfig();
-    dialogConfig2.disableClose = true;
-    this.dialog2.open(LoginComponent)
+  LoginPopUp(){
+    this.popUps.openDialog2();
   }
 }

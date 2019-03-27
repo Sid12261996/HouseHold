@@ -17,6 +17,8 @@ import { UserService } from 'src/user-service.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IndexComponent } from './components/body/index/index.component';
 import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
+import { PopUpService } from './pop-up.service';
+import { CountryService } from './country.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,7 @@ import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.
     ReactiveFormsModule,
     HttpClientModule   
   ],
-  providers: [UserService,HttpClientModule,HttpClient],
+  providers: [UserService,HttpClientModule,HttpClient,PopUpService,CountryService],
   bootstrap: [AppComponent],
   entryComponents: [RegisterComponent,LoginComponent]
 })
