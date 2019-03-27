@@ -18,6 +18,8 @@ export class IndexComponent implements OnInit {
 user$:AppUser[];
 getUser():void{
   var email = this.dataService.currentUser.Email; 
+  console.log(email);
+  email?email:'sidharthrkc@gmail.com';
   this.dataService.GetUserByEmail(email).
   subscribe(data=>
     {

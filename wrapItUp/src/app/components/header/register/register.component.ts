@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/user-service.service';
 import { Router } from '@angular/router';
 import { AppUser } from 'src/app-user';
@@ -6,6 +6,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { JsonPipe } from '@angular/common';
 import { CountryService } from 'src/app/country.service';
+import { PopUpService } from 'src/app/pop-up.service';
+import { IndexComponent } from '../../body/index/index.component';
+import { error } from 'util';
 
 
 @Component({
@@ -20,7 +23,8 @@ export class RegisterComponent implements OnInit {
 
 
  
- constructor(private _loginservice : UserService, private route:Router,private countryService:CountryService) { }
+ constructor(private _loginservice : UserService, private route:Router,private countryService:CountryService,
+  private PopUpService:PopUpService) { }
 
  ngOnInit() {
    this.formFields = new FormGroup({
@@ -42,15 +46,24 @@ export class RegisterComponent implements OnInit {
  }
  registered:boolean = false;
  Register():void{
-   console.log(this._loginservice.errorModel);
+  
    
     this._loginservice.RegisterUser(this.formFields.value).subscribe( data => {
-      console.log(data);
-      if(data){this.registered = true}
-      this.route.navigate(['index'])
+      this.errorFModel$ = this._loginservice.errorModel;
+     
+     
+      
+      if(data==null||data==undefined){
+        this.registered=true;   
+      }
+      if(data){
+      this.PopUpService.closeDialog();
+     
+      this.route.navigateByUrl('/index')
+      }
     });
- 
-   
+    
+  
  }
  public country$:string[];
  state$:string[];
@@ -61,7 +74,7 @@ export class RegisterComponent implements OnInit {
 
 }
 States: string[];
-
+errorFModel$:any="";
 
 state():void{
   var SelectedcountryName = this.formFields.value.Country;
@@ -81,6 +94,8 @@ getUser():void{
 }
   
 loginOpen(){
+  this.PopUpService.closeDialog();
+  this.PopUpService.openDialog2();
   
 }
 
