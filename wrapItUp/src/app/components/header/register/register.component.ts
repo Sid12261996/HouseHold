@@ -80,5 +80,8 @@ getUser():void{
    this._loginservice.GetUserByEmail(this.formFields.value.Email).subscribe(data=>{this.user$ = data});
 }
   
+loginOpen(){
+  
+}
 
 }
