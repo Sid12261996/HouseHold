@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
    });
 
    this.Country();
-
+this.state();
 
    
  }
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
       if(data){
       this.PopUpService.closeDialog();
      
-      this.route.navigateByUrl('/index')
+      this.route.navigate([{outlets:{body:['index']}}])
       }
     });
     

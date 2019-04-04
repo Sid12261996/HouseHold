@@ -19,6 +19,7 @@ import { IndexComponent } from './components/body/index/index.component';
 import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
 import { PopUpService } from './pop-up.service';
 import { CountryService } from './country.service';
+import { SecurityService } from './Security/security.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import { CountryService } from './country.service';
     ReactiveFormsModule,
     HttpClientModule   
   ],
-  providers: [UserService,HttpClientModule,HttpClient,PopUpService,CountryService],
+  providers: [UserService,HttpClientModule,HttpClient,PopUpService,CountryService,SecurityService],
   bootstrap: [AppComponent],
   entryComponents: [RegisterComponent,LoginComponent]
 })
