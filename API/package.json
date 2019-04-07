@@ -1,0 +1,25 @@
+{
+  "name": "wrapitupapi",
+  "version": "1.0.0",
+  "description": "This is an API part of the project hosted at PORT 4000. It handles the http reqs and responses. DB connected is MongoDb ",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sid12261996/HouseHold.git"
+  },
+  "author": "Sidharth & Shekhar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sid12261996/HouseHold/issues"
+  },
+  "homepage": "https://github.com/Sid12261996/HouseHold#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.4.22"
+  }
+}
