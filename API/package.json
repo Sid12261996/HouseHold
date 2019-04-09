@@ -6,6 +6,10 @@
   "scripts": {
     "test": " test"
   },
+  "engines": {
+    "node":"10.15.x",
+    "npm":"6.9.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sid12261996/HouseHold.git"
