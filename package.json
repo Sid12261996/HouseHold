@@ -7,8 +7,8 @@
     "test": " test"
   },
   "engines": {
-    "node":"10.15.x",
-    "npm":"6.9.x"
+    "node": "10.15.x",
+    "npm": "6.9.x"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,16 @@
   },
   "homepage": "https://github.com/Sid12261996/HouseHold#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
     "create-gitignore": "^0.1.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.2.3",
     "mongoose": "^5.4.22"
+  },
+  "env": {
+    "MongoUrl": "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true",
+    "jwtKey": "addjfbskLFDJfj32784hsankzdcdsKisfhajnkoo;fsd"
   }
 }

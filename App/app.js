@@ -1,39 +1,41 @@
 var express  = require('express'),
 app = express(),
-Router = express.Router(),
+bodyParser= require('body-parser'),
 mongodb= require('mongodb').MongoClient,
 mongoose = require('mongoose'),
 
-AppUser =require('../Models/AppUser')
-
+User =require('../App/routes/User'),
+getAll = require('./routes/getAll'),
+TokenVerification=require('../App/AuthVerify/AuthVerify')
 ;
 
+mongoose.connect(process.env.MongoUrl,{useNewUrlParser:true});
+mongoose.Promise = global.Promise;
 
-app.get('/',(req,res)=>{
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === "OPTIONS") {
+      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+      return res.status(200).json({});
+    }
+    next();
+  });
+  
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use('/Api/getAll',TokenVerification,getAll);
+app.use('/Api/User',User);
+app.use('Api/protected',TokenVerification,User)
+app.get('/*',(req,res)=>{
     res.sendFile('./Index.html',{root:__dirname});
 })
-app.get('/getAll',(req,res)=>{
-  
-    MongoX.then((result)=>{
-        res.send(result);
-    },function(err) {
-        console.log(err);
-    });
-})
-URL='mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/test?retryWrites=true';
-MongoX = new Promise(function (resolve,rej){
-   
-    mongodb.connect(URL,{useNewUrlParser:true},(err,db)=>{
-        if(err) throw err;
-        var dbo = db.db('HouseHoldsDatabase');
-         dbo.collection("Users").find({}).toArray((err,result)=>{
-            if(err) throw err;
-            
-                resolve(result);
-            
-        }); 
-    });
-});
+
+
+
 
 
 module.exports = app;
