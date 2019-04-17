@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopUpService } from 'src/app/pop-up.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit() {
   }
+  constructor(private dialog:MatDialog,
+    private dialog2:MatDialog,
+    private popUps:PopUpService          
+){}
 
+RegisterPopUp(){
+this.popUps.openDialog();
+}
+LoginPopUp(){
+this.popUps.openDialog2();
+}
 }

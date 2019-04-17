@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { FormGroup } from '@angular/forms';
+
 import {AppUser} from './app-user'
-import { stringify } from 'querystring';
+
 import { JsonPipe } from '@angular/common';
 
 @Injectable({  
@@ -18,32 +18,44 @@ export class UserService {
     return 'root';
   }
   currentUser:AppUser;
-  Url:string = 'https://apiforhouseholdrapitup20190308031732.azurewebsites.net/Api/';
-  urlloC:string = 'http://localhost:52035/Api/';
+  Url:string = 'https://wraapitup.herokuapp.com/api/';
+  urlloC:string = 'http://localhost:3000/api/';
   countryApi: string='https://restcountries.eu/rest/v2/all';
-
-
+headerType={  
+  headers: new HttpHeaders({'Content-Type':'application/json' })
+}
+//To register an user to DB
 RegisterUser(user: AppUser): Observable<AppUser>{
   this.currentUser=user;
 if(user.Username!=null){
   return this.http.post<AppUser>(
-    this.urlloC+'Account/Register',
+    this.Url+'User/Register',
     user,
-    {
-      headers: new HttpHeaders({'Content-Type':'application/json' })
-    }
+    this.headerType
+  
   ).pipe(
     
     catchError(this.handleError<AppUser>('RegisterUser'))
   );
 }
 }
-
+//For getting user on the user with emailId
 GetUserByEmail( email:string):Observable<AppUser[]>{
 
-  return this.http.get<AppUser[]>(this.urlloC+'Account/GetUserByEmail?Email='+email);
+  return this.http.get<AppUser[]>(this.Url+'User/GetUserByEmail?Email='+email);
 }
+//For Logging user in and getting back token
+LoginUser(user:AppUser):Observable<AppUser>{
+    if(user!=null||user != undefined){
+        return this.http.post<AppUser>(this.Url+'User/Login',
+        {Email:user.Email,Password:user.Password},this.headerType)
+        .pipe(
+          catchError(this.handleError<AppUser>('RegisterUser'))
+        );
+    }
 
+}
+//For getting Country
 public getCountry():Observable<JsonPipe>{
 return this.http.get<JsonPipe>(this.countryApi)
 ;

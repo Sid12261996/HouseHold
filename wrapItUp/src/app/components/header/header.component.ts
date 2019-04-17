@@ -15,15 +15,5 @@ export class HeaderComponent implements OnInit {
   
   ngOnInit() {
   }
-  constructor(private dialog:MatDialog,
-              private dialog2:MatDialog,
-              private popUps:PopUpService          
-    ){}
-
-    RegisterPopUp(){
-   this.popUps.openDialog();
-  }
-  LoginPopUp(){
-    this.popUps.openDialog2();
-  }
+ constructor(){}
 }
