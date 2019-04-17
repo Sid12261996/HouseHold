@@ -14,7 +14,7 @@ import { LoginComponent } from './components/header/login/login.component';
 import {ReactiveFormsModule } from '@angular/forms'
 import { UserService } from 'src/user-service.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { IndexComponent } from './components/body/index/index.component';
+import { IndexComponent } from './components/index/index.component';
 import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
 import { PopUpService } from './pop-up.service';
 import { CountryService } from './country.service';

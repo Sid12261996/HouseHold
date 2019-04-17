@@ -7,7 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { CountryService } from 'src/app/country.service';
 import { PopUpService } from 'src/app/pop-up.service';
-import { IndexComponent } from '../../body/index/index.component';
+import { IndexComponent } from '../../index/index.component';
 import { error } from 'util';
 
 
@@ -19,9 +19,6 @@ import { error } from 'util';
 export class RegisterComponent implements OnInit {
   register = "THis is REgisters";
   formFields:FormGroup;
- 
-
-
  
  constructor(private _loginservice : UserService, private route:Router,private countryService:CountryService,
   private PopUpService:PopUpService) { }
