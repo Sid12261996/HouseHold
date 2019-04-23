@@ -79,5 +79,8 @@ Router.post('/Login',(req,res)=>{
 
    
 });
-
+ //api/User/getByEmail
+ Router.get('/GetByEmail',(req,res)=>{
+     res.json({mesage:'Email is Working'});
+ });
 module.exports=Router;
