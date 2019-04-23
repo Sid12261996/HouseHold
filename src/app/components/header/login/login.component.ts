@@ -1,12 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {UserService} from 'src/app/services/user-service.service';
-import {FormGroup, FormControl} from '@angular/forms';
-
-import {Router, ActivatedRoute} from '@angular/router';
-import {PopUpService} from 'src/app/services/pop-up.service';
-import {SecurityService} from 'src/app/services/security.service';
-import {MatDialog, MatDialogConfig} from '@angular/material';
-import {RegisterComponent} from '../register/register.component';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/user-service.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,64 +9,21 @@ import {RegisterComponent} from '../register/register.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private dialog: MatDialog,
-              private dialog2: MatDialog) {
-  }
-
-  returnUrl: string;
-
-
-  formFields: FormGroup;
-  message: string;
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
     this.formFields = new FormGroup({
-      Email: new FormControl(),
-      Password: new FormControl()
-    });
+   
+      Email :new FormControl(),
+      Password :new FormControl()})
+  }
+  formFields:FormGroup;
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-
-
+  Login(){
+    this.userService.LoginUser(this.formFields.value).subscribe(data=>{
+      console.log(data)
+      
+    })
   }
 
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.width = '300%';
-    // dialogConfig.height = "900px";
-    this.dialog.open(RegisterComponent);
-  }
-
-
-  closeDialog2() {
-    this.dialog2.closeAll();
-  }
-
-  Login() {
-    this.userService.LoginUser(this.formFields.value).subscribe(data => {
-
-        // console.log(data)
-        // tslint:disable-next-line:triple-equals
-        // tslint:disable-next-line:triple-equals
-        if (data.message == 'Success') {
-          this.message = data.message;
-
-        this.userService.User(data);
-         this.closeDialog2();
-
-          this.router.navigate([{outlets: {body: ['Index']}}]);
-        }
-
-
-        this.message = data.message;
-      },
-      error => {
-        console.log(error, 'hihih');
-      });
-  }
-
-  newUser() {
-    this.openDialog();
-  }
 }

@@ -1,7 +1,6 @@
-import {Component, OnInit, Output, Input} from '@angular/core';
-import {UserService} from 'src/app/services/user-service.service';
-import {AppUser} from 'src/app/models/app-user';
-import {SecurityService} from 'src/app/services/security.service';
+import { Component, OnInit, Output, Input } from '@angular/core';
+import { UserService } from 'src/user-service.service';
+import { AppUser } from 'src/app-user';
 
 
 @Component({
@@ -10,15 +9,24 @@ import {SecurityService} from 'src/app/services/security.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  user$: AppUser;
-  constructor(private dataService: UserService) {
-  }
 
-  ngOnInit() {
-    this.user$ = this.dataService.CurrentUser;
-  }
+  constructor(private dataService:UserService ) { }
 
+  ngOnInit(){
 
+} 
+user$:AppUser[];
+getUser():void{
+  var email = this.dataService.currentUser.Email; 
+  console.log(email);
+  email?email:'sidharthrkc@gmail.com';
+  this.dataService.GetUserByEmail(email).
+  subscribe(data=>
+    {
+      this.user$ =data;
+      
 
-
+    })
+}
+  
 }
