@@ -42,7 +42,10 @@ if(user.Username!=null){
 //For getting user on the user with emailId
 GetUserByEmail( email:string):Observable<AppUser[]>{
 
-  return this.http.get<AppUser[]>(this.Url+'User/GetUserByEmail?Email='+email);
+  return this.http.get<AppUser[]>(this.Url+'/getall',{headers:{
+    contentType:'application/json',
+    
+  }});
 }
 //For Logging user in and getting back token
 LoginUser(user:AppUser):Observable<AppUser>{
