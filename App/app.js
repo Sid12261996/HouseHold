@@ -22,8 +22,8 @@ app.use((req, res, next) => {
   next();
 });
   
-
-mongoose.connect(process.env.MongoUrl,{useNewUrlParser:true});
+var MongoUrl =  "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true";
+mongoose.connect(process.env.MongoUrl||MongoUrl,{useNewUrlParser:true});
 mongoose.Promise = global.Promise;
 
 
