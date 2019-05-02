@@ -22,8 +22,9 @@ export class UserService {
 
  
   currentUser:AppUser;
-  //Url:string = 'https://wraapitup.herokuapp.com/api/';
-  Url:string = 'http://localhost:3000/api/';
+  
+  Url:string = 'https://wraapitup.herokuapp.com/api/';
+  //Url:string = 'http://localhost:3000/api/';
   countryApi: string='https://restcountries.eu/rest/v2/all';
 headerType={  
   headers: new HttpHeaders({'Content-Type':'application/json' }),
