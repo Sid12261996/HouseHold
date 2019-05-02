@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopUpService } from 'src/app/pop-up.service';
+import { PopUpService } from 'src/app/services/pop-up.service';
 import { MatDialog } from '@angular/material';
 
 @Component({

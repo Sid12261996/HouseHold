@@ -3,4 +3,5 @@ export class Auth {
     isCustomer:boolean=false;
     isWorker:boolean=false;
     isAdmin:boolean=false;
+    Token:string;
 }

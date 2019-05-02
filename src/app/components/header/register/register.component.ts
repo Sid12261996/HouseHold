@@ -1,14 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from 'src/user-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 import { Router } from '@angular/router';
-import { AppUser } from 'src/app-user';
+import { AppUser } from 'src/app/models/app-user';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { JsonPipe } from '@angular/common';
-import { CountryService } from 'src/app/country.service';
-import { PopUpService } from 'src/app/pop-up.service';
+import { CountryService } from 'src/app/services/country.service';
+import { PopUpService } from 'src/app/services/pop-up.service';
 import { IndexComponent } from '../../index/index.component';
 import { error } from 'util';
+import { LoginComponent } from '../login/login.component';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 
 @Component({
@@ -21,7 +24,8 @@ export class RegisterComponent implements OnInit {
   formFields:FormGroup;
  
  constructor(private _loginservice : UserService, private route:Router,private countryService:CountryService,
-  private PopUpService:PopUpService) { }
+  private dialog:MatDialog,
+    private dialog2:MatDialog) { }
 
  ngOnInit() {
    this.formFields = new FormGroup({
@@ -41,23 +45,50 @@ this.state();
 
    
  }
- registered:boolean = false;
+message:string;
+
+///popups
+openDialog(){
+  const dialogConfig = new MatDialogConfig();
+ 
+  dialogConfig.width = "300%";
+  //dialogConfig.height = "900px";
+  this.dialog.open(RegisterComponent)
+}
+openDialog2(){
+  const dialogConfig2 = new MatDialogConfig();
+  dialogConfig2.width = "300%";
+  this.dialog2.open(LoginComponent)
+}
+closeDialog(){
+ this.dialog.closeAll();
+}
+closeDialog2(){
+  this.dialog2.closeAll();
+ }
+
+
  Register():void{
   
    
     this._loginservice.RegisterUser(this.formFields.value).subscribe( data => {
-      this.errorFModel$ = this._loginservice.errorModel;
+     
      
      
       
       if(data==null||data==undefined){
-        this.registered=true;   
+        
       }
-      if(data){
-      this.PopUpService.closeDialog();
+      if(data.message == 'Successfully Saved'){
+        console.log(data.message);
+        this.message = data.message;
+        this.loginOpen(); 
      
-      this.route.navigate([{outlets:{body:['index']}}])
+     
       }
+      console.log(data.message);
+      this.message = data.message;
+     
     });
     
   
@@ -91,8 +122,8 @@ getUser():void{
 }
   
 loginOpen(){
-  this.PopUpService.closeDialog();
-  this.PopUpService.openDialog2();
+ this.closeDialog();
+  this.openDialog2();
   
 }
 

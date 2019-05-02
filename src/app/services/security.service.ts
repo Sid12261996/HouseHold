@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth } from './auth';
+import { Auth } from '../Security/auth';
+import { AppUser } from '../models/app-user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,17 @@ SecurityObject:Auth= new Auth();
     this.SecurityObject.isWorker=false;
     this.SecurityObject.isAdmin=false;
    }
+  isauthenticated():Boolean{
+  if(this.SecurityObject.isAuthenticated==true)
+  return true;
+  else return false;
+}
 
+setToken(user:any):void{
+  if(user&&user.token){
+localStorage.setItem('Token',user.token);
+  }
+}
   ResetUser(){
     this.SecurityObject.isAuthenticated=false;
     this.SecurityObject.isCustomer=false;

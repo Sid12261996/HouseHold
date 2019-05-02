@@ -1,5 +1,6 @@
 <div class="example-container">
-  <h4  *ngFor='let err of errorFModel$ | keyvalue' >{{err.value}}</h4>
+
+  <p id="ErrorMessage" *ngIf='message' >*{{message}}</p>
   <form [formGroup]="formFields" (ngSubmit)="Register()" >
     <mat-label><h3 align = "center"> Register</h3></mat-label>
     <mat-form-field class="col-md-6">

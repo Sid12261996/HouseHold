@@ -4,9 +4,11 @@ import { Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 
-import {AppUser} from './app-user'
+
 
 import { JsonPipe } from '@angular/common';
+import { AppUser } from '../models/app-user';
+
 
 @Injectable({  
   providedIn: 'root'  
@@ -17,15 +19,18 @@ export class UserService {
   private newMethod() {
     return 'root';
   }
+
+ 
   currentUser:AppUser;
-  Url:string = 'https://wraapitup.herokuapp.com/api/';
-  urlloC:string = 'http://localhost:3000/api/';
+  //Url:string = 'https://wraapitup.herokuapp.com/api/';
+  Url:string = 'http://localhost:3000/api/';
   countryApi: string='https://restcountries.eu/rest/v2/all';
 headerType={  
-  headers: new HttpHeaders({'Content-Type':'application/json' })
+  headers: new HttpHeaders({'Content-Type':'application/json' }),
+  
 }
 //To register an user to DB
-RegisterUser(user: AppUser): Observable<AppUser>{
+RegisterUser(user: AppUser): Observable<any>{
   this.currentUser=user;
 if(user.Username!=null){
   return this.http.post<AppUser>(
@@ -39,16 +44,16 @@ if(user.Username!=null){
   );
 }
 }
+// SetHeaderObj = {headers:{
+//   Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.c2lk.4QlpDNQd90mJD4ORLrRiigR9IsuUxlX_yXKyygdDoMo'
+// }}
 //For getting user on the user with emailId
 GetUserByEmail( email:string):Observable<AppUser[]>{
 
-  return this.http.get<AppUser[]>(this.Url+'/getall',{headers:{
-    contentType:'application/json',
-    
-  }});
+  return this.http.get<AppUser[]>(this.Url+'getall');
 }
 //For Logging user in and getting back token
-LoginUser(user:AppUser):Observable<AppUser>{
+LoginUser(user:AppUser):Observable<any>{
     if(user!=null||user != undefined){
         return this.http.post<AppUser>(this.Url+'User/Login',
         {Email:user.Email,Password:user.Password},this.headerType)
@@ -63,6 +68,7 @@ public getCountry():Observable<JsonPipe>{
 return this.http.get<JsonPipe>(this.countryApi)
 ;
 }
+
 
 public errorModel:any;
 private handleError<T> (operation = 'operation', result?: T) {

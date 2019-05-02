@@ -10,3 +10,7 @@
     color: blue;
     text-decoration-line: underline;
   }
+  #ErrorMessage{
+    color:red ;
+    font-size: 14px;
+  }

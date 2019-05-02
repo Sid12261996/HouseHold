@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
-import { RegisterComponent } from './components/header/register/register.component';
-import { LoginComponent } from './components/header/login/login.component';
+import { RegisterComponent } from '../components/header/register/register.component';
+import { LoginComponent } from '../components/header/login/login.component';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class PopUpService {
   }
   openDialog2(){
     const dialogConfig2 = new MatDialogConfig();
-    
+    dialogConfig2.width = "300%";
     this.dialog2.open(LoginComponent)
   }
   closeDialog(){

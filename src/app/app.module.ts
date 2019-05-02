@@ -9,16 +9,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/header/register/register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
-import { BodyComponent } from './components/body/body.component';
+
 import { LoginComponent } from './components/header/login/login.component';
 import {ReactiveFormsModule } from '@angular/forms'
-import { UserService } from 'src/user-service.service';
+import { UserService } from 'src/app/services/user-service.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IndexComponent } from './components/index/index.component';
 import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
-import { PopUpService } from './pop-up.service';
-import { CountryService } from './country.service';
-import { SecurityService } from './Security/security.service';
+import { PopUpService } from './services/pop-up.service';
+import { CountryService } from './services/country.service';
+import { SecurityService } from './services/security.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,7 @@ import { SecurityService } from './Security/security.service';
     NavbarComponent,
    
     RegisterComponent,
-    BodyComponent,
+    
     LoginComponent,
     IndexComponent,
     WelcomepageComponent,
