@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
-import { UserService } from 'src/user-service.service';
-import { AppUser } from 'src/app-user';
+import { UserService } from 'src/app/services/user-service.service';
+import { AppUser } from 'src/app/models/app-user';
+import { SecurityService } from 'src/app/services/security.service';
 
 
 @Component({
@@ -10,14 +11,14 @@ import { AppUser } from 'src/app-user';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private dataService:UserService ) { }
+  constructor(private security:SecurityService,private dataService:UserService ) { }
 
   ngOnInit(){
 
 } 
 user$:AppUser[];
 getUser():void{
-  var email = this.dataService.currentUser.Email; 
+  var email = this.security.SecurityObject.Token; 
   console.log(email);
   email?email:'sidharthrkc@gmail.com';
   this.dataService.GetUserByEmail(email).
