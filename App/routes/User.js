@@ -11,6 +11,7 @@ Router.post('/Register',(req,res)=>{
     Users.find({$and:[{"Username":req.body.Username},{"Email":req.body.Email}]}).exec()
     .then(data=>{
         if(data.length>0){
+          
             res.json({message:"UserName or Email already Exists"});
         }else{
             bcrypt.hash(req.body.Password,10,(err,hash)=>{
@@ -25,12 +26,13 @@ Router.post('/Register',(req,res)=>{
                         ConfirmPassword:hash,
                         PhoneNumber:req.body.PhoneNumber,
                         State:req.body.State,
-                        Country:req.body.Country   
+                        Country:req.body.Country,
+                        Role:req.body.Role||'Customer' 
                         });
                 
                         RegisterUser.save().then(result=>{
                           
-                            res.json({mesage:'Successfully Saved ',result});
+                            res.json({message:'Successfully Saved',result});
                         }).catch(err=>{console.log(err)})
 
             })
@@ -52,7 +54,7 @@ Router.post('/Login',(req,res)=>{
             bcrypt.compare(req.body.Password,user.Password,(err,result)=>{
                  console.log(result) 
                 if(err){
-                    res.status(401).json({message:'Authorization Failed! Password Incorrect!'})
+                    res.json({message:'Authorization Failed! Password Incorrect!'})
                 }
            
                 else{
@@ -61,19 +63,19 @@ Router.post('/Login',(req,res)=>{
                     jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtKey,(err,token)=>{
                         if(err)
                             {console.error(err)} 
-                    res.json({message:"Login route successfully working",token})
+                    res.json({message:"Success",token,user})
                     });
                 
                 }
                 else{
-                    res.status(401).json({message:'Authorization Failed, Password Incorrect! '})
+                    res.json({message:'Password Incorrect! '})
                 }}
             })
             
 
         }
         else{
-            res.status(401).json({mesage:'Username is incorrect!'});
+            res.json({message:'Username is incorrect!'});
         }
     })
 
