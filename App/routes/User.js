@@ -46,8 +46,9 @@ Router.post('/Register',(req,res)=>{
 //api/User/Login
 Router.post('/Login',(req,res)=>{
     user = new Users();
-    Users.find({Email:req.body.Email}).exec().then(data=>{
-       
+    Users.find({Email:req.body.Email.trim()}).exec().then(data=>{
+        console.log(req.body.Email) 
+        console.log(data) 
         if( data.length > 0){
             user = data[0];
             
