@@ -8,7 +8,7 @@ var privateKey="addjfbskLFDJfj32784hsankzdcdsKisfhajnkoo;fsd";
 //api/User/Register
 Router.post('/Register',(req,res)=>{
 
-    Users.find({$and:[{"Username":req.body.Username},{"Email":req.body.Email}]}).exec()
+    Users.find({"Email":req.body.Email}).exec()
     .then(data=>{
         if(data.length>0){
           
@@ -61,7 +61,7 @@ Router.post('/Login',(req,res)=>{
                 else{
                 if(result){
                      console.log();
-                    jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtKey||privateKey,(err,token)=>{
+                    jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtprivatkey||privateKey,(err,token)=>{
                         if(err)
                             {console.error(err)} 
                     res.json({message:"Success",token,user})

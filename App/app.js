@@ -4,7 +4,6 @@ cors = require('cors'),
 bodyParser= require('body-parser'),
 mongodb= require('mongodb').MongoClient,
 mongoose = require('mongoose'),
-EEE = require('custom-env').env(),
 
 User =require('../App/routes/User'),
 getAll = require('./routes/getAll'),
@@ -25,8 +24,8 @@ app.use(cors());
 //   next();
 // });
   
-var MongoUrl =  "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true";
-mongoose.connect(process.env.MongoUrl||MongoUrl,{useNewUrlParser:true});
+//var MongoUrl =  "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true";
+mongoose.connect(process.env.Mongo_URL,{useNewUrlParser:true});
 mongoose.Promise = global.Promise;
 
 
