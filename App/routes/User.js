@@ -2,9 +2,10 @@ const Users = require('../../Models/AppUser'),
 Router = require('express').Router(),
 mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
-bcrypt = require('bcrypt');
+bcrypt = require('bcrypt'),
+JwtKey = require('../../nodemon').env.jwtKey;
 
-var privateKey="addjfbskLFDJfj32784hsankzdcdsKisfhajnkoo;fsd";
+
 //api/User/Register
 Router.post('/Register',(req,res)=>{
 
@@ -17,7 +18,7 @@ Router.post('/Register',(req,res)=>{
             bcrypt.hash(req.body.Password,10,(err,hash)=>{
 
                     if(err){throw err}
-           console.log(req.body.Password)
+
 
                     RegisterUser = new Users({_id: new mongoose.Types.ObjectId(),
                         Username:req.body.Username
@@ -47,21 +48,21 @@ Router.post('/Register',(req,res)=>{
 Router.post('/Login',(req,res)=>{
     user = new Users();
     Users.find({Email:req.body.Email.trim()}).exec().then(data=>{
-        console.log(req.body.Email) 
-        console.log(data) 
+
+
         if( data.length > 0){
             user = data[0];
             
             bcrypt.compare(req.body.Password,user.Password,(err,result)=>{
-                 console.log(result) 
+
                 if(err){
                     res.json({message:'Authorization Failed! Password Incorrect!'})
                 }
            
                 else{
                 if(result){
-                     console.log();
-                    jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtprivatkey||privateKey,(err,token)=>{
+                     console.log("");
+                    jwt.sign({Username:user.Username,Email:user.Email},JwtKey,(err,token)=>{
                         if(err)
                             {console.error(err)} 
                     res.json({message:"Success",token,user})
