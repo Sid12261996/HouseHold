@@ -7,7 +7,7 @@ mongoose = require('mongoose'),
 
 User =require('../App/routes/User'),
 getAll = require('./routes/getAll'),
-    Url= require('../../API/nodemon').env.MongoUrl,
+    Url= require('../../API/nodemon.json').env.MongoUrl,
 TokenVerification=require('../App/AuthVerify/AuthVerify')
 ;
 app.use(cors());
