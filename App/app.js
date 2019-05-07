@@ -4,6 +4,7 @@ cors = require('cors'),
 bodyParser= require('body-parser'),
 mongodb= require('mongodb').MongoClient,
 mongoose = require('mongoose'),
+EEE = require('custom-env').env(),
 
 User =require('../App/routes/User'),
 getAll = require('./routes/getAll'),

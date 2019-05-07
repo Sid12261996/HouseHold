@@ -4,7 +4,7 @@ mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
 bcrypt = require('bcrypt');
 
-
+var privateKey="addjfbskLFDJfj32784hsankzdcdsKisfhajnkoo;fsd";
 //api/User/Register
 Router.post('/Register',(req,res)=>{
 
@@ -60,8 +60,8 @@ Router.post('/Login',(req,res)=>{
            
                 else{
                 if(result){
-                
-                    jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtKey,(err,token)=>{
+                     console.log();
+                    jwt.sign({Username:user.Username,Email:user.Email},process.env.jwtKey||privateKey,(err,token)=>{
                         if(err)
                             {console.error(err)} 
                     res.json({message:"Success",token,user})
