@@ -4,7 +4,7 @@ mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
 bcrypt = require('bcrypt');
 let JwtKey = require('../../nodemon.json').env.jwtKey;
-console.log(JwtKey,"Wait");
+console.log(process.env.JwtKey);
 if(!JwtKey){
 
     JwtKey=process.env.JwtKey;
@@ -64,7 +64,7 @@ Router.post('/Login',(req,res)=>{
            
                 else{
                 if(result){
-                     console.log("");
+
                     jwt.sign({Username:user.Username,Email:user.Email},JwtKey,(err,token)=>{
                         if(err)
                             {console.error(err)} 

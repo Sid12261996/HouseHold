@@ -4,10 +4,8 @@ module.exports = (req,res,next)=>{
 
     try {
         const token = req.headers.authorization.split( " ")[1];
-        console.log(process.env.jwtKey)
-        const decoded = jwt.verify(token, process.env.jwtKey);
-        req.userData = decoded;
-
+        console.log(process.env.JwtKey,"Oif")
+        const decoded = jwt.verify(token, process.env.JwtKey);
         next();
     } catch (error) {
         return res.status(401).json({
