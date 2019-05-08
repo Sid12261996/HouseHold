@@ -4,9 +4,9 @@ mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
 bcrypt = require('bcrypt');
 let JwtKey = require('../../nodemon.json').env.jwtKey;
-
+console.log(JwtKey,"Wait");
 if(!JwtKey){
-    console.log(JwtKey);
+
     JwtKey=process.env.JwtKey;
 }
 //api/User/Register

@@ -4,7 +4,7 @@ module.exports = (req,res,next)=>{
 
     try {
         const token = req.headers.authorization.split( " ")[1];
-        console.log(token,"No")
+        console.log(process.env.jwtKey)
         const decoded = jwt.verify(token, process.env.jwtKey);
         req.userData = decoded;
 
