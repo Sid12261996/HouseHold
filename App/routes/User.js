@@ -3,9 +3,10 @@ Router = require('express').Router(),
 mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
 bcrypt = require('bcrypt');
-var JwtKey = require('../../nodemon.json').env.jwtKey;
+let JwtKey = require('../../nodemon.json').env.jwtKey;
 
 if(!JwtKey){
+    console.log(JwtKey);
     JwtKey=process.env.JwtKey;
 }
 //api/User/Register
