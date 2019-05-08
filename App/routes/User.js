@@ -2,10 +2,12 @@ const Users = require('../../Models/AppUser'),
 Router = require('express').Router(),
 mongoose = require('mongoose'),
 jwt = require('jsonwebtoken'),
-bcrypt = require('bcrypt'),
-JwtKey = require('../../nodemon.json').env.jwtKey;
+bcrypt = require('bcrypt');
+var JwtKey = require('../../nodemon.json').env.jwtKey;
 
-
+if(!JwtKey){
+    JwtKey=process.env.JwtKey;
+}
 //api/User/Register
 Router.post('/Register',(req,res)=>{
 

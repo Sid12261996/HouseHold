@@ -11,24 +11,11 @@ getAll = require('./routes/getAll'),
 TokenVerification=require('../App/AuthVerify/AuthVerify')
 ;
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With,Content-Type, Accept, Authorization"
-//   );
-//   if (req.method === "OPTIONS") {
-//     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-//     return res.status(200).json({});
-//   }
-//   res.header(" Content-Type", "application/json");
-//   next();
-// });
-  
+
 //var MongoUrl =  "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true";
 
 
-mongoose.connect(Url,{useNewUrlParser:true});
+mongoose.connect(Url||process.env.MongoUrl,{useNewUrlParser:true});
 mongoose.Promise = global.Promise;
 
 
