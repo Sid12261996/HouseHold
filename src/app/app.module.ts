@@ -1,32 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './components/header/header.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
 
-import { RegisterComponent } from './components/header/register/register.component';
+import {RegisterComponent} from './components/header/register/register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule } from './material';
+import {MaterialModule} from './models/material';
 
-import { LoginComponent } from './components/header/login/login.component';
-import {ReactiveFormsModule } from '@angular/forms'
-import { UserService } from 'src/app/services/user-service.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { IndexComponent } from './components/index/index.component';
-import { WelcomepageComponent } from './components/body/welcomepage/welcomepage.component';
-import { PopUpService } from './services/pop-up.service';
-import { CountryService } from './services/country.service';
-import { SecurityService } from './services/security.service';
+import {LoginComponent} from './components/header/login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {UserService} from 'src/app/services/user-service.service';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {IndexComponent} from './components/index/index.component';
+import {WelcomepageComponent} from './components/body/welcomepage/welcomepage.component';
+import {PopUpService} from './services/pop-up.service';
+import {CountryService} from './services/country.service';
+import {SecurityService} from './services/security.service';
+import {AuthGuardGuard} from './Security/auth-guard.guard';
+import {Router} from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-   
+
     RegisterComponent,
-    
+
     LoginComponent,
     IndexComponent,
     WelcomepageComponent,
@@ -37,10 +40,11 @@ import { SecurityService } from './services/security.service';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule   
+    HttpClientModule
   ],
-  providers: [UserService,HttpClientModule,HttpClient,PopUpService,CountryService,SecurityService],
+  providers: [ UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard],
   bootstrap: [AppComponent],
-  entryComponents: [RegisterComponent,LoginComponent]
+  entryComponents: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
