@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Auth} from '../Security/auth';
 import {AppUser} from '../models/app-user';
 import {AppUserWithAuth} from '../models/app-user-with-auth';
+import {userError} from '@angular/compiler-cli/src/transformers/util';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class SecurityService {
   }
 
   isauthenticated(): Boolean {
-    if (this.SecurityObject.isAuthenticated === true) {
+    // const userExist = localStorage.getItem(this.SecurityObject.user.Email);
+    if (this.SecurityObject.isAuthenticated) {
       return true;
     } else {
       return false;
@@ -29,7 +31,8 @@ export class SecurityService {
   setToken(): void {
     if (this.SecurityObject !== null || this.SecurityObject !== undefined) {
 
-      localStorage.setItem(this.SecurityObject.user.Email, this.SecurityObject.Token);
+      localStorage.setItem('User', JSON.stringify(this.SecurityObject.user));
+      localStorage.setItem('Token', this.SecurityObject.Token);
     }
   }
 
@@ -77,7 +80,7 @@ export class SecurityService {
   }
 
   private removeToken(Email: string) {
-    localStorage.removeItem(Email);
+    localStorage.clear();
   }
 
   get User() {

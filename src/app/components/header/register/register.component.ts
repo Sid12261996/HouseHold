@@ -20,13 +20,20 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  register = 'THis is REgisters';
-  formFields: FormGroup;
 
   constructor(private _loginservice: UserService, private route: Router, private countryService: CountryService,
               private dialog: MatDialog,
               private dialog2: MatDialog) {
   }
+  register = 'THis is REgisters';
+  formFields: FormGroup;
+
+  message: string;
+
+  public country$: string[];
+  state$: string[];
+
+  States: string[];
 
   ngOnInit() {
     this.formFields = new FormGroup({
@@ -47,14 +54,12 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  message: string;
-
-///popups
+/// popups
   openDialog() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.width = '300%';
-    //dialogConfig.height = "900px";
+    // dialogConfig.height = "900px";
     this.dialog.open(RegisterComponent);
   }
 
@@ -79,10 +84,10 @@ export class RegisterComponent implements OnInit {
     this._loginservice.RegisterUser(this.formFields.value).subscribe(data => {
 
 
-      if (data == null || data == undefined) {
+      if (data == null || data === undefined) {
 
       }
-      if (data.message == 'Successfully Saved') {
+      if (data.message === 'Successfully Saved') {
         console.log(data.message);
         this.message = data.message;
         this.loginOpen();
@@ -97,36 +102,26 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  public country$: string[];
-  state$: string[];
-
   Country(): void {
     this.country$ = this.countryService.getCountry();
 
 
   }
 
-  States: string[];
-  errorFModel$: any = '';
 
   state(): void {
-    var SelectedcountryName = this.formFields.value.Country;
-    if (SelectedcountryName != null && SelectedcountryName != undefined) {
+    // tslint:disable-next-line:prefer-const
+    let SelectedcountryName = this.formFields.value.Country;
+    if (SelectedcountryName != null && SelectedcountryName !== undefined) {
 
-      var AllState = this.countryService.getState();
-      var index = this.country$.indexOf(SelectedcountryName);
-      var states = AllState[index + 1].split('|');
+      const AllState = this.countryService.getState();
+      const index = this.country$.indexOf(SelectedcountryName);
+      // tslint:disable-next-line:prefer-const
+      let states = AllState[index + 1].split('|');
       this.States = states;
     }
   }
 
-  user$: AppUser[];
-
-  getUser(): void {
-    this._loginservice.GetUserByEmail(this.formFields.value.Email).subscribe(data => {
-      this.user$ = data;
-    });
-  }
 
   loginOpen() {
     this.closeDialog();
