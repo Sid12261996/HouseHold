@@ -1,0 +1,16 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 650px;
+  }
+  .login:hover{
+    color: blue;
+    text-decoration-line: underline;
+  }
+  #ErrorMessage{
+    color:red ;
+    font-size: 14px;
+  }
