@@ -5,9 +5,10 @@
       <button mat-flat-button routerLink="" class="nav">HOME</button>
       <button mat-flat-button routerLink="" class="nav">HOME</button>
       <span class="example-spacer"></span>
-      <button mat-flat-button routerLink="" class="nav" (click)="RegisterPopUp()">Register</button>
+      <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav" (click)="RegisterPopUp()">Register</button>
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav" (click)="LoginPopUp()">LogIn</button>
     <button *ngIf="UserIn()" mat-flat-button routerLink="" class="nav" (click)="Logout()">LogOut</button>
+    <button *ngIf="UserIn()" mat-flat-button [routerLink]="[{ outlets: {body: ['Profile'] } }]" class="nav">Profile</button>
 
   </mat-toolbar-row>
 </mat-toolbar>
