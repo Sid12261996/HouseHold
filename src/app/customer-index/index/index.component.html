@@ -15,7 +15,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-raised-button color="primary">EXPLORE</button>
+                  <button mat-raised-button color="primary" [routerLink]="['Services']" >EXPLORE</button>
                   
                 </mat-card-actions>
               </mat-card>
@@ -33,7 +33,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-raised-button color="primary">YOUR PAST SERVICES</button>
+                  <button mat-raised-button color="primary" [routerLink]="['History']">YOUR PAST SERVICES</button>
                   
                 </mat-card-actions>
               </mat-card>
@@ -50,7 +50,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-raised-button color="primary">FEEDBACK</button>
+                  <button mat-raised-button color="primary" [routerLink]="['Feedback']">FEEDBACK</button>
                   
                 </mat-card-actions>
               </mat-card>
@@ -67,7 +67,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-raised-button color="primary">SERVICE STATUS</button>
+                  <button mat-raised-button color="primary" [routerLink]="['Status']">SERVICE STATUS</button>
                   
                 </mat-card-actions>
               </mat-card>
@@ -76,3 +76,5 @@
       </div>
     </mat-drawer-content>
   </mat-drawer-container>
+
+<router-outlet></router-outlet>

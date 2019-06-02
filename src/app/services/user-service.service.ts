@@ -18,7 +18,9 @@ export class UserService {
 
   constructor(private http: HttpClient, private security: SecurityService) {
   }
+
   private currentUser: AppUser;
+
   get CurrentUser() {
     return this.security.SecurityObject.user;
   }
@@ -28,10 +30,8 @@ export class UserService {
   }
 
 
-
-
-  Url = 'https://householdapi.herokuapp.com/api/';
-  // Url:string = 'http://localhost:3000/api/';
+  // Url = 'https://householdapi.herokuapp.com/api/';
+  Url: string = 'http://localhost:3000/api/';
   countryApi = 'https://restcountries.eu/rest/v2/all';
   headerType = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
@@ -67,10 +67,8 @@ export class UserService {
 
     if (user != null || user !== undefined) {
       return this.http.post<AppUser>(this.Url + 'User/Login',
-        {Email: user.Email, Password: user.Password})
-        .pipe(
-          catchError(this.handleError<AppUser>('RegisterUser'))
-        );
+        {Email: user.Email, Password: user.Password});
+
     }
 
   }
@@ -82,7 +80,7 @@ export class UserService {
   }
 
   User(user: AppUserWithAuth) {
-   // console.log(user, 'I am from role');
+    // console.log(user, 'I am from role');
     switch (user.user.Role) {
       case 'Admin':
         this.Admin(user);
@@ -98,7 +96,7 @@ export class UserService {
 
   }
 
- get AmIAuthenticated(): boolean {
+  get AmIAuthenticated(): boolean {
     if (this.security.isauthenticated()) {
       return true;
     }
@@ -128,7 +126,7 @@ export class UserService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      this.errorModel = error.error.ModelState;
+
       // TODO: send the error to remote logging infrastructure
       // log to console instead
 

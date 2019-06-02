@@ -7,7 +7,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 import {JsonPipe} from '@angular/common';
 import {CountryService} from 'src/app/services/country.service';
 import {PopUpService} from 'src/app/services/pop-up.service';
-import {IndexComponent} from '../../index/index.component';
+import {IndexComponent} from '../../../customer-index/index/index.component';
 import {error} from 'util';
 import {LoginComponent} from '../login/login.component';
 import {Message} from '@angular/compiler/src/i18n/i18n_ast';

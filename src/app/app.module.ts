@@ -14,7 +14,7 @@ import {LoginComponent} from './components/header/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {UserService} from 'src/app/services/user-service.service';
 import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {IndexComponent} from './components/index/index.component';
+import {IndexComponent} from './customer-index/index/index.component';
 import {WelcomepageComponent} from './components/body/welcomepage/welcomepage.component';
 import {PopUpService} from './services/pop-up.service';
 import {CountryService} from './services/country.service';
@@ -23,6 +23,11 @@ import {AuthGuardGuard} from './Security/auth-guard.guard';
 import {Router} from '@angular/router';
 import { ProfileComponent } from './components/body/profile/profile.component';
 import {JwtInterceptor} from './myInterceptor';
+import { ServicesOfferedComponent } from './customer-index/IndexModule/services-offered/services-offered.component';
+import { ServiceHistoryComponent } from './customer-index/IndexModule/service-history/service-history.component';
+import { FeedbackComponent } from './customer-index/IndexModule/feedback/feedback.component';
+import { StatusComponent } from './customer-index/IndexModule/status/status.component';
+import  {CustomerIndexModule} from './customer-index/customer-index.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,10 @@ import {JwtInterceptor} from './myInterceptor';
     IndexComponent,
     WelcomepageComponent,
     ProfileComponent,
+    ServicesOfferedComponent,
+    ServiceHistoryComponent,
+    FeedbackComponent,
+    StatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +52,18 @@ import {JwtInterceptor} from './myInterceptor';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomerIndexModule
   ],
-  providers: [ UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  providers: [UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent]
 })
 export class AppModule {
 }
+
+// {
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: JwtInterceptor,
+//     multi: true
+// }

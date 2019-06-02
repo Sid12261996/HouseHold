@@ -52,24 +52,27 @@ export class LoginComponent implements OnInit {
   Login() {
     this.userService.LoginUser(this.formFields.value).subscribe(data => {
 
-        // console.log(data)
+         // console.log(data)
         // tslint:disable-next-line:triple-equals
         // tslint:disable-next-line:triple-equals
-        if (data.message == 'Success') {
+      if(data) {
+        if (data.message === 'Success') {
           this.message = data.message;
 
-        this.userService.User(data);
-         this.closeDialog2();
+          this.userService.User(data);
+          this.closeDialog2();
 
-          this.router.navigate([{outlets: {body: ['Index']}}]);
+          this.router.navigate(['/Index']);
         }
 
 
         this.message = data.message;
+      }
       },
       error => {
-        console.log(error, 'hihih');
-      });
+        console.error(error);
+      }
+    );
   }
 
   newUser() {
