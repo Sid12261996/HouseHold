@@ -9,7 +9,6 @@
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav" (click)="LoginPopUp()">LogIn</button>
     <button *ngIf="UserIn()" mat-flat-button routerLink="" class="nav" (click)="Logout()">LogOut</button>
     <button *ngIf="UserIn()" mat-flat-button [routerLink]="['Profile']" class="nav">Profile</button>
-    <button *ngIf="UserIn()" mat-flat-button [routerLink]="[{ outlets: {index: ['Status']} }]" class="nav">Status</button>
 
   </mat-toolbar-row>
 </mat-toolbar>
