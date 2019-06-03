@@ -16,7 +16,6 @@ export class SecurityService {
     this.SecurityObject.isWorker = false;
     this.SecurityObject.isAdmin = false;
 
-
   }
 
   isauthenticated(): Boolean {
