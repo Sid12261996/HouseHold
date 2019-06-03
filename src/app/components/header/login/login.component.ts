@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           this.userService.User(data);
           this.closeDialog2();
 
-          this.router.navigate(['/Index']);
+          this.router.navigate([this.returnUrl]);
         }
 
 

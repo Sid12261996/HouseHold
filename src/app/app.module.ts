@@ -55,15 +55,15 @@ import  {CustomerIndexModule} from './customer-index/customer-index.module';
     HttpClientModule,
     CustomerIndexModule
   ],
-  providers: [UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard],
+  providers: [UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent]
 })
 export class AppModule {
 }
-
-// {
-//     provide: HTTP_INTERCEPTORS,
-//     useClass: JwtInterceptor,
-//     multi: true
-// }

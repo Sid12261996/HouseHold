@@ -30,8 +30,8 @@ export class UserService {
   }
 
 
-  Url = 'https://householdapi.herokuapp.com/api/';
-  // Url: string = 'http://localhost:3000/api/';
+  // Url = 'https://householdapi.herokuapp.com/api/';
+  Url= 'http://localhost:3000/api/';
   countryApi = 'https://restcountries.eu/rest/v2/all';
   headerType = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
@@ -79,43 +79,48 @@ export class UserService {
 
   }
 
-  User(user: AppUserWithAuth) {
-    // console.log(user, 'I am from role');
-    switch (user.user.Role) {
+  User(user: AppUserWithAuth, guard = false) {
+
+    const condition = guard ? user.Role : user.user.Role
+    console.log(condition, 'I am from role');
+    switch (condition) {
       case 'Admin':
-        this.Admin(user);
+        this.Admin(user, guard);
         break;
       case 'Worker':
-        this.Worker(user);
+        this.Worker(user, guard);
         break;
       case 'Customer':
-        this.Customer(user);
+        this.Customer(user, guard);
         break;
-
+      default:
+        this.Customer(user, guard);
     }
 
   }
 
-  get AmIAuthenticated(): boolean {
+
+
+   AmIAuthenticated(): boolean {
     if (this.security.isauthenticated()) {
       return true;
     }
     return false;
   }
 
-  private Worker(user: AppUserWithAuth) {
+  private Worker(user: AppUserWithAuth, guard) {
     // tslint:disable-next-line:no-unused-expression
-    this.security.SetWorker(user);
+    this.security.SetWorker(user, guard);
   }
 
-  private Customer(user: AppUserWithAuth) {
+  private Customer(user: AppUserWithAuth, guard) {
     // tslint:disable-next-line:no-unused-expression
-    this.security.SetCustomer(user);
+    this.security.SetCustomer(user, guard);
   }
 
-  private Admin(user: AppUserWithAuth) {
+  private Admin(user: AppUserWithAuth, guard) {
     // tslint:disable-next-line:no-unused-expression
-    this.security.SetAdmin(user);
+    this.security.SetAdmin(user, guard);
   }
 
 // For getting Country

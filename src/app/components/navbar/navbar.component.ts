@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
   }
 
   UserIn(): boolean {
-    return this.userService.AmIAuthenticated;
+    return this.userService.AmIAuthenticated();
 
   }
   Logout():void{

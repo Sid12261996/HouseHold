@@ -28,11 +28,13 @@ export class SecurityService {
     }
   }
 
-  setToken(): void {
-    if (this.SecurityObject !== null || this.SecurityObject !== undefined) {
-
-      localStorage.setItem('User', JSON.stringify(this.SecurityObject.user));
-      localStorage.setItem('Token', this.SecurityObject.Token);
+  setToken(guard: boolean): void {
+    if (!guard) {
+      this.removeToken();
+      if ((this.SecurityObject.Token !== null || this.SecurityObject.Token !== undefined) && (this.SecurityObject.user !== null || this.SecurityObject.user !== undefined)) {
+        localStorage.setItem('User', JSON.stringify(this.SecurityObject.user));
+        localStorage.setItem('Token', this.SecurityObject.Token);
+      }
     }
   }
 
@@ -47,40 +49,48 @@ export class SecurityService {
 
   logOut() {
     this.ResetUser();
-    this.removeToken(this.SecurityObject.user.Email);
+    this.removeToken();
   }
 
-  SetWorker(user: AppUserWithAuth) {
+  SetWorker(user: AppUserWithAuth, guard: boolean) {
     this.ResetUser();
     this.SecurityObject.isAuthenticated = true;
     this.SecurityObject.isWorker = true;
-    this.SecurityObject.user = user.user;
-    this.SecurityObject.Token = user.token;
-    this.setToken();
+    this.SettingSecurityObject(user, guard);
+    this.setToken(guard);
   }
 
-  SetCustomer(user: AppUserWithAuth) {
+  SetCustomer(user: AppUserWithAuth, guard: boolean) {
     this.ResetUser();
     this.SecurityObject.isAuthenticated = true;
     this.SecurityObject.isCustomer = true;
-    this.SecurityObject.user = user.user;
-    this.SecurityObject.Token = user.token;
-    this.setToken();
+    this.SettingSecurityObject(user, guard);
+    this.setToken(guard);
   }
 
-  SetAdmin(user: AppUserWithAuth) {
+  SetAdmin(user: AppUserWithAuth, guard: boolean) {
     this.ResetUser();
     this.SecurityObject.isAuthenticated = true;
     this.SecurityObject.isCustomer = true;
     this.SecurityObject.isWorker = true;
     this.SecurityObject.isAdmin = true;
-    this.SecurityObject.user = user.user;
-    this.SecurityObject.Token = user.token;
-    this.setToken();
+    this.SettingSecurityObject(user, guard);
+    this.setToken(guard);
   }
 
-  private removeToken(Email: string) {
+  private removeToken() {
     localStorage.clear();
+  }
+
+  private SettingSecurityObject(user: any, guard: boolean) {
+    if (guard) {
+      this.SecurityObject.user = user;
+      this.SecurityObject.Token = localStorage.getItem('Token');
+    } else {
+      this.SecurityObject.user = user.user;
+      this.SecurityObject.Token = user.token;
+    }
+
   }
 
   get User() {
