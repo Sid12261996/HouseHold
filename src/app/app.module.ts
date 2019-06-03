@@ -45,9 +45,10 @@ import {JwtInterceptor} from './myInterceptor';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  providers: [ UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent]
 })
 export class AppModule {
 }
+//,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
