@@ -40,6 +40,19 @@
   display: inline-block;
   border: 5px solid white;
 }
+.skillboxadd{
+  height: 80px;
+  width: 80px;
+  color: rgb(71, 71, 71);
+  background-color: rgb(180, 178, 178);
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  display: inline-block;
+  border: 5px solid white;
+}
+
 /* .rowshadow{
   padding-top: 5px;
   box-shadow: 1px 1px 15px 1px gray;
