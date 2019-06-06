@@ -8,7 +8,8 @@ import {ServiceHistoryComponent} from './IndexModule/service-history/service-his
 import {StatusComponent} from './IndexModule/status/status.component';
 
 const routes: Routes = [
-  {path: 'Index', component: IndexComponent, canActivate: [AuthGuardGuard], children: [
+  {path: 'Index', canActivate: [AuthGuardGuard], children: [
+      {path: '', component: IndexComponent},
       {path: 'Services', component: ServicesOfferedComponent},
       {path: 'History', component: ServiceHistoryComponent},
       {path: 'Status', component: StatusComponent},
