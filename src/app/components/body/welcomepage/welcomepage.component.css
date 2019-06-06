@@ -204,3 +204,45 @@ hr{
     line-height: normal;
     letter-spacing: 0.06em;
 }
+@media only screen and (max-width: 760px) {
+    .smallcenter{
+        justify-content: center;
+    }
+    .smallmargin{
+        margin-top: 16%;
+    }
+    .contr3 p{
+        font-size: 16px;
+    }
+    .contr2Heading{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 38px;
+        letter-spacing: 0.1em;
+    }
+    .contr4row2col{
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+    .social{
+        justify-content: center;
+        text-align: center;
+    }
+    .footercol{
+        margin: 0%;
+        text-align: center;
+        justify-content: center;
+    }
+    .footerLogo{
+        padding-top: 12%;
+    }
+    .footersmallmargin{
+        margin-top: 20%;
+        
+    }
+    .footercenter{
+        text-align: center;
+        justify-content: center;
+    }
+} 

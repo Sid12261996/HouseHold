@@ -30,8 +30,8 @@ export class UserService {
   }
 
 
-  // Url = 'https://householdapi.herokuapp.com/api/';
-  Url= 'http://localhost:3000/api/';
+  Url = 'https://householdapi.herokuapp.com/api/';
+  //Url= 'http://localhost:3000/api/';
   countryApi = 'https://restcountries.eu/rest/v2/all';
   headerType = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
