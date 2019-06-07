@@ -8,7 +8,10 @@ mongoose = require('mongoose'),
 User =require('../App/routes/User'),
 getAll = require('./routes/getAll'),
     Url= require('../nodemon.json').env.MongoUrl,
-TokenVerification=require('../App/AuthVerify/AuthVerify')
+TokenVerification=require('../App/AuthVerify/AuthVerify'),
+    feedBack = require('./routes/feedBack'),
+    workerService = require('./routes/workService'),
+    serviceOffered = require('./routes/ServicesOffered')
 ;
 app.use(cors());
 
@@ -23,7 +26,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/Api/getAll',TokenVerification,getAll);
 app.use('/Api/User',User);
-app.use('Api/protected',TokenVerification,User);
+app.use('/Api/protected',TokenVerification,User);
+app.use('/Api/feedBack',feedBack);
+app.use('/Api/worker',TokenVerification,workerService);
+app.use('/Api/service',TokenVerification,serviceOffered);
 app.get('/*',(req,res)=>{
     res.sendFile('./Index.html',{root:__dirname});
 });

@@ -1,7 +1,7 @@
 var Users = require('../../Models/AppUser'),
 express =require('express'),
 Router= express.Router(),
-mongodb= require('mongodb').MongoClient,
+
 mongoose= require('mongoose');
 
 Router.get('/', (req,res)=>{
