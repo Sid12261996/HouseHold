@@ -9,6 +9,7 @@ import {StatusComponent} from './IndexModule/status/status.component';
 import {SubCategoryComponent} from './sub-category/sub-category.component';
 
 const routes: Routes = [
+
   {
     path: 'Index', canActivate: [AuthGuardGuard], children: [
       {path: '', component: IndexComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
         }]}
     ]
   },
+
 ];
 
 @NgModule({
