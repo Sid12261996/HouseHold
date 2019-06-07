@@ -4,6 +4,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
 import {RegisterComponent} from '../header/register/register.component';
 import {LoginComponent} from '../header/login/login.component';
 import {UserService} from '../../services/user-service.service';
+import {AppUser} from "../../models/app-user";
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +13,18 @@ import {UserService} from '../../services/user-service.service';
 })
 export class NavbarComponent implements OnInit {
 
-
-  ngOnInit() {
-  }
-
   constructor(private dialog: MatDialog,
               private dialog2: MatDialog,
               private userService: UserService
   ) {
+  }
+
+
+
+  currentUser$ = this.userService.CurrentUser;
+
+
+  ngOnInit() {
   }
 
   RegisterPopUp() {
@@ -42,7 +47,8 @@ export class NavbarComponent implements OnInit {
     return this.userService.AmIAuthenticated();
 
   }
-  Logout():void{
+
+  Logout(): void {
     this.userService.Logout();
   }
 }
