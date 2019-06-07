@@ -21,13 +21,14 @@ import {CountryService} from './services/country.service';
 import {SecurityService} from './services/security.service';
 import {AuthGuardGuard} from './Security/auth-guard.guard';
 import {Router} from '@angular/router';
-import { ProfileComponent } from './components/body/profile/profile.component';
+import {ProfileComponent} from './components/body/profile/profile.component';
 import {JwtInterceptor} from './myInterceptor';
-import { ServicesOfferedComponent } from './customer-index/IndexModule/services-offered/services-offered.component';
-import { ServiceHistoryComponent } from './customer-index/IndexModule/service-history/service-history.component';
-import { FeedbackComponent } from './customer-index/IndexModule/feedback/feedback.component';
-import { StatusComponent } from './customer-index/IndexModule/status/status.component';
-import  {CustomerIndexModule} from './customer-index/customer-index.module';
+import {ServicesOfferedComponent} from './customer-index/IndexModule/services-offered/services-offered.component';
+import {ServiceHistoryComponent} from './customer-index/IndexModule/service-history/service-history.component';
+import {FeedbackComponent} from './customer-index/IndexModule/feedback/feedback.component';
+import {StatusComponent} from './customer-index/IndexModule/status/status.component';
+import {CustomerIndexModule} from './customer-index/customer-index.module';
+import {FooterComponent} from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import  {CustomerIndexModule} from './customer-index/customer-index.module';
     ServiceHistoryComponent,
     FeedbackComponent,
     StatusComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
