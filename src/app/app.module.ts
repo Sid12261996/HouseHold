@@ -21,8 +21,9 @@ import {CountryService} from './services/country.service';
 import {SecurityService} from './services/security.service';
 import {AuthGuardGuard} from './Security/auth-guard.guard';
 import {Router} from '@angular/router';
-import { ProfileComponent } from './components/body/profile/profile.component';
+import {ProfileComponent} from './components/body/profile/profile.component';
 import {JwtInterceptor} from './myInterceptor';
+<<<<<<< HEAD
 import { ServicesOfferedComponent } from './customer-index/IndexModule/services-offered/services-offered.component';
 import { ServiceHistoryComponent } from './customer-index/IndexModule/service-history/service-history.component';
 import { FeedbackComponent } from './customer-index/IndexModule/feedback/feedback.component';
@@ -31,6 +32,14 @@ import  {CustomerIndexModule} from './customer-index/customer-index.module';
 import {MatSelectModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
+=======
+import {ServicesOfferedComponent} from './customer-index/IndexModule/services-offered/services-offered.component';
+import {ServiceHistoryComponent} from './customer-index/IndexModule/service-history/service-history.component';
+import {FeedbackComponent} from './customer-index/IndexModule/feedback/feedback.component';
+import {StatusComponent} from './customer-index/IndexModule/status/status.component';
+import {CustomerIndexModule} from './customer-index/customer-index.module';
+import {FooterComponent} from './components/footer/footer.component';
+>>>>>>> 0b82907ff39dace569fbebfdc83bee15951928c6
 
 @NgModule({
   declarations: [
@@ -48,6 +57,7 @@ import {MatRadioModule} from '@angular/material/radio';
     ServiceHistoryComponent,
     FeedbackComponent,
     StatusComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
