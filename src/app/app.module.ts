@@ -28,6 +28,9 @@ import { ServiceHistoryComponent } from './customer-index/IndexModule/service-hi
 import { FeedbackComponent } from './customer-index/IndexModule/feedback/feedback.component';
 import { StatusComponent } from './customer-index/IndexModule/status/status.component';
 import  {CustomerIndexModule} from './customer-index/customer-index.module';
+import {MatSelectModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import  {CustomerIndexModule} from './customer-index/customer-index.module';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CustomerIndexModule
+    CustomerIndexModule,
+    MatSelectModule ,
+    MatFormFieldModule,
+    MatRadioModule
   ],
   providers: [UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
     {
