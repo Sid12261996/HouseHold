@@ -63,14 +63,38 @@ exports.genericUpdate = function (repo,req, res) {
 }
 
 
-exports.genericFind = function (repo,req,res,findExpression,select) {
 
-
-    repo.find(findExpression)
-        .select(select)
+exports.genericServiceUpdate = function (repo,req, res) {
+    const id = req.params.UserId;
+    const updateOps = {};
+    let iter = req.body;
+    for (let ele of Object.keys(iter)) {
+        updateOps[ele] = iter[ele];
+    }
+    repo.findOneAndUpdate({UserId: id}, {$set: updateOps})
         .exec()
         .then(result => {
 
+            res.status(200).json({
+                message: " updated",result:result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+}
+
+exports.genericFind = function (repo,req,res,findExpression) {
+
+console.log(findExpression)
+    repo.find(findExpression)
+
+        .exec()
+        .then(result => {
+console.log(result)
             res.status(200).json(result);
         })
         .catch(err => {
