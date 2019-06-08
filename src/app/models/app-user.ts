@@ -9,5 +9,6 @@ export class AppUser {
   public State: string;
   public Country: string;
   public Role: string;
+  public ImageUrl:string;
 
 }

@@ -2,12 +2,12 @@
   <div class="col-md-3 p-0">
     <div class="row m-0">
       <div class="col-md-12 p-0">
-        <img src="../../../../assets/user_profile/indian-army.jpg" alt="profile" class="profileSize">
+        <img [src]="user$.ImageUrl" alt="../../../../assets/user_profile/indian-army.jpg" class="profileSize">
       </div>
     </div>
     <div class="row m-0 ml-4 mr-4 rowshadow">
       <div class="col-md-10 p-0">
-        <p class="userName">Shekhar Saini</p>
+        <p class="userName">{{user$.Username}}</p>
       </div>
       <div class="col-md-2 p-0">
           <span class="userprofileEdit"><i class='fas fa-user-edit' style='font-size:18px;color:#ffffff;background-color:#FF366D;padding: 8px;border-radius: 40px'></i></span>
@@ -20,7 +20,7 @@
           </span>
       </div>
       <div class="col-md-10 p-0">
-          <p class="useremail">Shekharsaini@xyz.com</p>
+          <p class="useremail">{{user$.Email}}</p>
       </div>
     </div>
     <div class="row m-0 ml-4 mr-4 rowshadow">
@@ -28,7 +28,7 @@
           <span class="userprofileEdit"><i class='fas fa-home' style='font-size:18px;color:#ffffff;background-color:#FF366D;padding: 8px;border-radius: 4px'></i></span>
       </div>
       <div class="col-md-10 p-0">
-          <p class="">NFC hari nagar Ashram</p>
+          <p class="">{{user$.State}},{{user$.Country}}</p>
       </div>
     </div>
     <div class="row m-0 ml-4 mr-4 rowshadow">
@@ -36,13 +36,14 @@
           <span class="userprofileEdit"><i class='fas fa-mobile-alt' style='font-size:18px;color:#ffffff;background-color:#FF366D;padding: 8px;border-radius: 4px;width: 36px; text-align:center'></i></span>
       </div>
       <div class="col-md-10 p-0">
-          <p class="">+91 96508550900</p>
+          <p class="">{{user$.PhoneNumber}}</p>
       </div>
     </div>
   </div>
   <div class="col-md-9 p-0">
     <div class="row m-0 ml-4 mr-4 mt-4">
-        <h6>Designation:<h3 class="ml-5">Full-Stack Developer</h3></h6>
+        <h6>User Name:<h3 class="ml-5">{{user$.Username}}</h3></h6>
+      <input type="button" value="Edit" #edit (click)="Edit()">
     </div>
     <div class="row m-0 ml-4 mr-4">
         <h6>Skills:</h6>
