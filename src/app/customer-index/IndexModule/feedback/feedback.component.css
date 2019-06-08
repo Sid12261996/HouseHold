@@ -36,3 +36,10 @@ mat-radio-button {
 .laugh:hover{
     color: green;
 }
+
+.hideRadio{
+
+}
+input[type=radio]:checked{
+
+}

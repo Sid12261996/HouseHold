@@ -20,7 +20,7 @@ import {PopUpService} from './services/pop-up.service';
 import {CountryService} from './services/country.service';
 import {SecurityService} from './services/security.service';
 import {AuthGuardGuard} from './Security/auth-guard.guard';
-import {Router} from '@angular/router';
+
 import {ProfileComponent} from './components/body/profile/profile.component';
 import {JwtInterceptor} from './myInterceptor';
 
@@ -29,11 +29,11 @@ import {ServiceHistoryComponent} from './customer-index/IndexModule/service-hist
 import {FeedbackComponent} from './customer-index/IndexModule/feedback/feedback.component';
 import {StatusComponent} from './customer-index/IndexModule/status/status.component';
 import {CustomerIndexModule} from './customer-index/customer-index.module';
-import {MatSelectModule} from '@angular/material';
+import {MatSelectModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
-import { FooterComponent } from './components/footer/footer.component';
-
+import {FooterComponent} from './components/footer/footer.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -65,9 +65,9 @@ import { FooterComponent } from './components/footer/footer.component';
     CustomerIndexModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatRadioModule
+    MatRadioModule, MatSnackBarModule
   ],
-  providers: [UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
+  providers: [MatSnackBar, UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

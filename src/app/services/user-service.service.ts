@@ -9,6 +9,7 @@ import {JsonPipe} from '@angular/common';
 import {AppUser} from '../models/app-user';
 import {SecurityService} from './security.service';
 import {AppUserWithAuth} from '../models/app-user-with-auth';
+import {Url} from '../../environments/environment'
 
 
 @Injectable({
@@ -29,8 +30,8 @@ export class UserService {
     return this.security.SecurityObject;
   }
 
-
-  Url = 'https://householdapi.herokuapp.com/api/';
+  Url = Url;
+  //Url = 'https://householdapi.herokuapp.com/api/';
   //Url= 'http://localhost:3000/api/';
   countryApi = 'https://restcountries.eu/rest/v2/all';
   headerType = {
@@ -100,8 +101,7 @@ export class UserService {
   }
 
 
-
-   AmIAuthenticated(): boolean {
+  AmIAuthenticated(): boolean {
     if (this.security.isauthenticated()) {
       return true;
     }
