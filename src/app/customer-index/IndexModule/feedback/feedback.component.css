@@ -23,7 +23,6 @@ mat-radio-button {
 .angry:hover{
     color: red;
 } 
-
 .frown:hover{
     color: orange;
 } 
@@ -36,10 +35,9 @@ mat-radio-button {
 .laugh:hover{
     color: green;
 }
-
-.hideRadio{
-
+.radio-img  > input { 
+    display:none;
 }
-input[type=radio]:checked{
-
+.radio-img  > i{
+    cursor:pointer;
 }
