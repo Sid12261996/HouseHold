@@ -38,6 +38,9 @@
   .footercenter{
     text-align: center;
     justify-content: center;
+    font-size: 16px;
+    
+    
   }
 }
 
@@ -92,4 +95,45 @@ hr{
 .footer-links:hover{
   text-decoration:underline;
   color: blue;
+}
+.footercenter >a:hover{
+  color: #FF366D;
+  font-size: 18px;
+  -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}
+/* .footerLogo:hover{
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+} */
+@keyframes rotating {
+  from {
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+.footerLogo:hover {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+.sociallink:hover{
+  background-color: #FF366D;
+  border-radius:50%;
 }
