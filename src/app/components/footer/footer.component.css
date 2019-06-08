@@ -84,3 +84,12 @@ hr{
   line-height: normal;
   letter-spacing: 0.06em;
 }
+.footer-links{
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links:hover{
+  text-decoration:underline;
+  color: blue;
+}
