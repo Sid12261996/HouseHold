@@ -1,3 +1,75 @@
-<p>
-  sub-category works!
-</p>
+<mat-drawer-container class="example-container row mb-5">
+  <mat-drawer-content class="col-md-12">
+    <!-- <div class="row mt-2">
+      <div class="col-md-12 text-center">
+        <h6> Welcome {{user$.Username}}</h6>
+      </div>
+    </div> -->
+    <div class="row mt-2">
+      <div class="col-md-3 text-center">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <h4>House Cleaning</h4>
+          </mat-card-header>
+          <img mat-card-image src="../../../../assets/services/house-clean.jpg" alt="Services" class="imgsize">
+          <mat-card-content>
+            <p>Sweeping  and vacaumming</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['subCategory']" >EXPLORE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-md-3 text-center">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <h4>House Renovation</h4>
+            </mat-card-header>
+            <img mat-card-image src="../../../../assets/services/house-renovation.jpg" alt="Services" class="imgsize">
+            <mat-card-content>
+              <p>
+                 erregrt
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" [routerLink]="['subCategory']">YOUR PAST SERVICES</button>
+            </mat-card-actions>
+          </mat-card>
+      </div>
+      <!-- <div class="col-md-3 text-center">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <h4>Cooking</h4>
+            </mat-card-header>
+            <img mat-card-image src="../../../../assets/services/cooking.jpg" alt="Services" class="imgsize">
+            <mat-card-content>
+              <p>
+                  details about cooking
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" [routerLink]="['subCategory']">FEEDBACK</button>
+            </mat-card-actions>
+          </mat-card>
+      </div> -->
+      <!-- <div class="col-md-3 text-center">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <h4>catering</h4>
+            </mat-card-header>
+            <img mat-card-image src="../../../../assets/services/catering.jpg" alt="Services" class="imgsize">
+            <mat-card-content>
+              <p>
+                  details about catering
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" [routerLink]="['subCategory']">SERVICE STATUS</button>
+            </mat-card-actions>
+          </mat-card>
+      </div> -->
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+    
+<router-outlet></router-outlet>   
