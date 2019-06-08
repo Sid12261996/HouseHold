@@ -37,6 +37,10 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { FeesNchargesComponent } from './components/fees-ncharges/fees-ncharges.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import {MatSelectModule} from '@angular/material/select';
     FeedbackComponent,
     StatusComponent,
     FooterComponent,
+    AboutUsComponent,
+    CareersComponent,
+    ContactUsComponent,
+    FeesNchargesComponent,
 
 
   ],

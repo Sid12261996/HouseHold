@@ -7,8 +7,8 @@ export const environment = {
 
   }
 ;
-export const   Url = 'https://householdapi.herokuapp.com/api/';
-//export const Url = 'http://localhost:3000/api/';
+//export const   Url = 'https://householdapi.herokuapp.com/api/';
+export const Url = 'http://localhost:3000/api/';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
