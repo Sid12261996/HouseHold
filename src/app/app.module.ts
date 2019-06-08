@@ -34,6 +34,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {FooterComponent} from './components/footer/footer.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material';
 
 
 @NgModule({
@@ -66,7 +67,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     CustomerIndexModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatRadioModule, MatSnackBarModule
+    MatRadioModule, MatSnackBarModule, MatTableModule
   ],
   providers: [MatSnackBar, UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
     {
