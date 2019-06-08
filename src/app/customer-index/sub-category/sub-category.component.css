@@ -3,6 +3,11 @@
     width: 150px;
 }
 .example-container{
-    background-color: gray;
+    /* background-color: gray; */
     padding: 10px;
+}
+.formbutton{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    font-size: 26px;
 }

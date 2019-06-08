@@ -1,75 +1,77 @@
-<mat-drawer-container class="example-container row mb-5 mt-3">
-  <mat-drawer-content class="col-md-12">
-    <!-- <div class="row mt-2">
-      <div class="col-md-12 text-center">
-        <h6> Welcome {{user$.Username}}</h6>
+<div class="row mb-5 mt-3">
+  <div class="offset-2 col-md-8">
+    <mat-card-content>
+      <div class="row">
+        <button mat-raised-button color="accent" class="col-md-12 formbutton">Service Form</button>
       </div>
-    </div> -->
-    <div class="row mt-2">
-      <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <h4>House Cleaning</h4>
-          </mat-card-header>
-          <img mat-card-image src="../../../../assets/services/house-clean.jpg" alt="Services" class="imgsize">
-          <mat-card-content>
-            <p>Sweeping  and vacaumming</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" [routerLink]="['subCategory']" >EXPLORE</button>
-          </mat-card-actions>
-        </mat-card>
+      <div class="row mt-2">
+          <mat-form-field class="col-md-12">
+            <input matInput placeholder="Address">
+          </mat-form-field>
       </div>
-      <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <h4>House Renovation</h4>
-            </mat-card-header>
-            <img mat-card-image src="../../../../assets/services/house-renovation.jpg" alt="Services" class="imgsize">
-            <mat-card-content>
-              <p>
-                 erregrt
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['subCategory']">YOUR PAST SERVICES</button>
-            </mat-card-actions>
-          </mat-card>
+
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="exampleFormControlSelect1">Select Service</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <optgroup label="House Keeping">
+              <option value="clean">Cleaning</option>
+              <option value="renovate">Renovation</option>
+            </optgroup>
+            <hr>
+            <optgroup label="Laundry">
+              <option value="dryclean">Dry Cleaning</option>
+              <option value="normal">Normal Washing</option>
+            </optgroup>
+            <hr>
+            <optgroup label="Cooking">
+              <option value="veg">Vegiterian</option>
+              <option value="nonveg">Non Vegiterian</option>
+            </optgroup>
+            <hr>
+            <optgroup label="Catering">
+              <option value="veg">Vegiterian</option>
+              <option value="nonveg">Non Vegiterian</option>
+            </optgroup>
+          </select>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="col-md-2">
+          <span style="color:gray">Time:</span> 
+        </div>
+        <div class="col-md-1">
+            <span style="color:gray">START:</span> 
+        </div>
+        <div class="col-md-4">
+          <input type="time" placeholder="Choose start time">
+        </div>
+        <div class="col-md-1">
+            <span style="color:gray">END:</span> 
+        </div>
+        <div class="col-md-4">
+            <input type="time" placeholder="Choose end time">
+        </div>
       </div>
-      <!-- <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <h4>Cooking</h4>
-            </mat-card-header>
-            <img mat-card-image src="../../../../assets/services/cooking.jpg" alt="Services" class="imgsize">
-            <mat-card-content>
-              <p>
-                  details about cooking
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['subCategory']">FEEDBACK</button>
-            </mat-card-actions>
-          </mat-card>
-      </div> -->
-      <!-- <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <h4>catering</h4>
-            </mat-card-header>
-            <img mat-card-image src="../../../../assets/services/catering.jpg" alt="Services" class="imgsize">
-            <mat-card-content>
-              <p>
-                  details about catering
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['subCategory']">SERVICE STATUS</button>
-            </mat-card-actions>
-          </mat-card>
-      </div> -->
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+      <div class="row">
+        <mat-form-field class="col-md-12">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="example-full-width col-md-12">
+          <input type="number" matInput placeholder="Charges">
+          <mat-icon matSuffix><i class="fa fa-rupee"></i></mat-icon>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </div>
+</div>
+
+
+
+
     
 <router-outlet></router-outlet>   

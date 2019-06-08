@@ -29,12 +29,13 @@ import {ServiceHistoryComponent} from './customer-index/IndexModule/service-hist
 import {FeedbackComponent} from './customer-index/IndexModule/feedback/feedback.component';
 import {StatusComponent} from './customer-index/IndexModule/status/status.component';
 import {CustomerIndexModule} from './customer-index/customer-index.module';
-import {MatSelectModule, MatSnackBarModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {FooterComponent} from './components/footer/footer.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -80,4 +81,5 @@ import {MatTableModule} from '@angular/material';
   entryComponents: [AppComponent]
 })
 export class AppModule {
+  
 }
