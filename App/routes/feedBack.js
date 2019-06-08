@@ -13,14 +13,15 @@ Router.get('/:id',(req,res)=>{
     genericFeedback.genericFindById(feedBack,req,res)
 });
 
-Router.post('/insert',(req,res)=>{
+Router.post('/post',(req,res)=>{
+    console.log(res.body)
     toSave = new feedBack({
         _id: new mongoose.Types.ObjectId(),
         title:req.body.title,
         body:req.body.body,
-        sentBy:req.body.sentBy,
+        sentBy:mongoose.Types.ObjectId(req.body.sentBy),
         rating:req.body.rating,
-        replyId:req.body.replyId,
+       replyId:req.body.replyId,
         createdAt:Date(),
 
 
