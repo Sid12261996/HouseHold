@@ -15,3 +15,10 @@
 .example-button-row a {
   margin-right: 8px;
 }  
+.register:hover,.login:hover,.logout:hover,.profile:hover{
+  background: linear-gradient(to right, #FF366D 50%, #FF366D 50%);
+  color: white;
+  -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
