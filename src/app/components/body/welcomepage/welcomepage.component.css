@@ -8,6 +8,28 @@
     background-size: cover;
     color: #1C1C1C;
 }
+.animate {
+
+    background-color:#FF366D;
+    animation-name: stretch;
+    animation-duration: 1.5s; 
+    animation-timing-function: linear; 
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
+  }
+  
+  @keyframes stretch {
+    0% {
+      transform: translateY(30%);
+    border-radius: 100%;
+    }
+  }
+
+
+
+
 .companynamecolor{
     color: #FF366D;
 }
