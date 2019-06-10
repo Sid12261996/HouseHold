@@ -146,6 +146,12 @@ Router.get('/GetByEmail', (req, res) => {
 
 });
 
+    Router.get('/:id', (req, res) => {
+        deleteUser.genericFindById(Users,req,res);
+
+
+    });
+
 //api/User/:id
 Router.delete('/:id', (req, res) => {
     deleteUser.genericDeletion(Users, req, res)
