@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ServicesOffered} from "../../models/services-offered";
 import {UserService} from "../../services/user-service.service";
 import {ServiceOfferedService} from "../../services/service-offered.service";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-sub-category',
@@ -12,30 +13,37 @@ import {ServiceOfferedService} from "../../services/service-offered.service";
 export class SubCategoryComponent implements OnInit {
   formControl: FormGroup;
 
-  constructor(private fB: FormBuilder, private userService: UserService, private serve: ServiceOfferedService) {
+  constructor(private fB: FormBuilder, private userService: UserService, private serve: ServiceOfferedService
+    , private loc: Location) {
   }
 
+  address: string;
+
   ngOnInit() {
+    this.address = this.userService.CurrentUser.Address;
     this.formControl = this.fB.group({
-      Address: ['', Validators.required],
+      Address: [this.address, Validators.required],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
-      charges: ['', Validators.required],
-      DateOfService: ['', Validators.required],
+      charges: [0, Validators.required],
+      DateOfService: [new Date(), Validators.required],
       ServiceName: ['', Validators.required],
     });
   }
 
   onSubmit() {
 
-    var service = new ServicesOffered();
-    service.userId = this.userService.CurrentUser._id;
-    var date = this.formControl.value.DateOfService;
-    var onlyDate = date.getDate();
-    //onlyDate += this.formControl.value.startTime;
-
+    let service = new ServicesOffered();
+    service.UserId = this.userService.CurrentUser._id;
+    const date = this.formControl.value.DateOfService;
+    const onlyDate = date.getDate();
+service.serviceType = service.mapService(this.formControl.value.ServiceName);
     service = {...service, ...this.formControl.value};
-    console.log(service, 'onlydate-',onlyDate,'time-',date);
-    // this.serve.postServices(service);
+    console.log(service, 'onlyDate-', onlyDate, 'time-', date);
+    this.serve.postServices(service).subscribe(data => {
+      console.log(data);
+      this.loc.back();
+      this.loc.back();
+    });
   }
 }

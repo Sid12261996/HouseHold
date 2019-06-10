@@ -1,9 +1,7 @@
 <mat-toolbar class="nav pt-3 pb-3">
   <mat-toolbar-row class="nav wrapper">
       <button mat-flat-button routerLink="" class="nav wraplogo"><b class="">Wrap It UP</b></button>
-      <button mat-flat-button routerLink='/Index' >Index</button>
-      <button mat-flat-button routerLink="" class="nav">HOME</button>
-      <button mat-flat-button routerLink="" class="nav">HOME</button>
+
       <span class="example-spacer"></span>
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav register" (click)="RegisterPopUp()">Register</button>
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav login" (click)="LoginPopUp()">LogIn</button>

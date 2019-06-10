@@ -42,7 +42,7 @@ export class UserService {
   public errorModel: any;
 
 // To register an user to DB
-  RegisterUser(user: AppUser): Observable<any> {
+  RegisterUser(user: any): Observable<any> {
 
     if (user.Username != null) {
       return this.http.post<AppUser>(
@@ -139,6 +139,28 @@ export class UserService {
 
   public getUser(id): Observable<any> {
     return this.http.get(`${this.Url}user/${id}`);
+  }
+
+  get Role() {
+    const role = {
+      Admin: false,
+      Customer: false,
+      Worker: false
+    }
+
+    switch (this.CurrentUser.Role) {
+
+      case 'Admin':
+        role['Admin'] = true;
+        break;
+      case 'Worker':
+        role['Worker'] = true;
+        break;
+      case 'Customer':
+        role['Customer'] = true;
+        break;
+    }
+    return role;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

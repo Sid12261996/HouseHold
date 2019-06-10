@@ -10,15 +10,16 @@ import {SecurityService} from 'src/app/services/security.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  user$: AppUser;
+
   constructor(private dataService: UserService) {
   }
+  user$: AppUser;
+
+  Role = this.dataService.Role;
 
   ngOnInit() {
     this.user$ = this.dataService.CurrentUser;
   }
-
-
 
 
 }

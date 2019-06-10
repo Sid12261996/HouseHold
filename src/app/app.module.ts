@@ -29,7 +29,7 @@ import {ServiceHistoryComponent} from './customer-index/IndexModule/service-hist
 import {FeedbackComponent} from './customer-index/IndexModule/feedback/feedback.component';
 import {StatusComponent} from './customer-index/IndexModule/status/status.component';
 import {CustomerIndexModule} from './customer-index/customer-index.module';
-import {MatExpansionModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonToggleModule, MatExpansionModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {FooterComponent} from './components/footer/footer.component';
@@ -76,7 +76,7 @@ import { FeesNchargesComponent } from './components/fees-ncharges/fees-ncharges.
     CustomerIndexModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatRadioModule, MatSnackBarModule, MatTableModule, MatExpansionModule
+    MatRadioModule, MatSnackBarModule, MatTableModule, MatExpansionModule, MatButtonToggleModule
   ],
   providers: [MatSnackBar, UserService, HttpClientModule, HttpClient, PopUpService, CountryService, SecurityService, AuthGuardGuard,
     {
