@@ -40,7 +40,7 @@ exports.genericDeletion = function (repo, req, res) {
 
 
 exports.genericUpdate = function (repo,req, res,image=false,imgUrl=null) {
-    const id = req.body.id;
+    const id = req.body.id||req.params.id;
     const updateOps = {};
     let iter = req.body;
     for (let ele of Object.keys(iter)) {
