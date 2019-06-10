@@ -1,5 +1,5 @@
-const Users = require('../../Models/AppUser'),
-    Router = require('express').Router(),
+    const Users = require('../../Models/AppUser'),
+        Router = require('express').Router(),
     mongoose = require('mongoose'),
     jwt = require('jsonwebtoken'),
     bcrypt = require('bcrypt'),

@@ -12,7 +12,8 @@ TokenVerification=require('../App/AuthVerify/AuthVerify'),
     feedBack = require('./routes/feedBack'),
     workerService = require('./routes/workService'),
     serviceOffered = require('./routes/ServicesOffered'),
-path = require('path');
+path = require('path'),
+dpUpdate= require('./routes/AnyFileUpload');
 ;
 app.use(cors());
 
@@ -33,6 +34,7 @@ app.use('/Api/protected',TokenVerification,User);
 app.use('/Api/feedBack',feedBack);
 app.use('/Api/worker',TokenVerification,workerService);
 app.use('/Api/service',TokenVerification,serviceOffered);
+app.use('/api/upload',TokenVerification,dpUpdate)
 app.get('/*',(req,res)=>{
     res.sendFile('./Index.html',{root:__dirname});
 });
