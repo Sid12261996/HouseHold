@@ -7,7 +7,20 @@
     </div>
     <div class="row mt-2">
       <div class="col-md-3 text-center">
-        <mat-card class="example-card">
+        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">
+          <mat-card-header>
+          </mat-card-header>
+          <img mat-card-image src="../../../../assets/services.png" alt="Services" class="imgsize">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['Services']" >EXPLORE</button>
+          </mat-card-actions>
+        </mat-card>
+        <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
           <mat-card-header>
           </mat-card-header>
           <img mat-card-image src="../../../../assets/services.png" alt="Services" class="imgsize">
@@ -22,37 +35,63 @@
         </mat-card>
       </div>
       <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-            <mat-card-header>
-            </mat-card-header>
-            <img mat-card-image src="../../../../assets/history.jpg" alt="Services" class="imgsize">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['History']">YOUR PAST SERVICES</button>
-            </mat-card-actions>
-          </mat-card>
+        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">
+        <mat-card-header>
+        </mat-card-header>
+        <img mat-card-image src="../../../../assets/history.jpg" alt="Services" class="imgsize">
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" [routerLink]="['History']">YOUR PAST SERVICES</button>
+        </mat-card-actions>
+      </mat-card>
+        <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
+          <mat-card-header>
+          </mat-card-header>
+          <img mat-card-image src="../../../../assets/history.jpg" alt="Services" class="imgsize">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['History']">YOUR PAST SERVICES</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
       <div class="col-md-3 text-center">
-        <mat-card class="example-card">
-            <mat-card-header>
-            </mat-card-header>
-            <img mat-card-image src="../../../../assets/feedback3.png" alt="Services" class="imgsize">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['Feedback']">FEEDBACK</button>
-            </mat-card-actions>
-          </mat-card>
+        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">
+        <mat-card-header>
+        </mat-card-header>
+        <img mat-card-image src="../../../../assets/feedback3.png" alt="Services" class="imgsize">
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" [routerLink]="['Feedback']">FEEDBACK</button>
+        </mat-card-actions>
+      </mat-card>
+        <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
+          <mat-card-header>
+          </mat-card-header>
+          <img mat-card-image src="../../../../assets/feedback3.png" alt="Services" class="imgsize">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['Feedback']">FEEDBACK</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
       <div class="col-md-3 text-center">
-        <mat-card class="example-card">
+        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">
             <mat-card-header>
             </mat-card-header>
             <img mat-card-image src="../../../../assets/status.png" alt="Services" class="imgsize">
@@ -65,6 +104,19 @@
               <button mat-raised-button color="primary" [routerLink]="['Status']">SERVICE STATUS</button>
             </mat-card-actions>
           </mat-card>
+        <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
+          <mat-card-header>
+          </mat-card-header>
+          <img mat-card-image src="../../../../assets/status.png" alt="Services" class="imgsize">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['Status']">SERVICE STATUS</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </mat-drawer-content>

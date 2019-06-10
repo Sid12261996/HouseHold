@@ -1,6 +1,10 @@
 export enum ServiceTypes {
-  Laundry,
-  HouseKeeping,
-  Cooking,
-  Catering
+  clean,
+  renovate,
+  Cookveg,
+  Cooknonveg,
+  Catveg,
+  Catnonveg,
+  dryClean,
+  normalWash
 }

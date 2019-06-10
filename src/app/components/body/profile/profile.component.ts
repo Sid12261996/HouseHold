@@ -111,6 +111,14 @@ export class ProfileComponent implements OnInit {
       this.appUser._id = this.user$._id;
       this.user.profileUpdate(this.appUser).subscribe(data => {
         console.log(data);
+        if(data){
+          this.snackBar.open('Data uploaded', '', {
+            duration: 5 * 1000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
+          location.reload();
+        }
       });
     }
     if (this.imageUpload) {

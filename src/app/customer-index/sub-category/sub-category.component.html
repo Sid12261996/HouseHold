@@ -56,14 +56,14 @@
       </div>
       <div class="row">
         <mat-form-field class="col-md-12">
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="DateOfService">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date for the service" formControlName="DateOfService" readonly>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="example-full-width col-md-12">
-          <input type="number" matInput placeholder="Charges" formControlName="charges">
+          <input type="number" matInput placeholder="Charges" formControlName="charges" readonly>
           <mat-icon matSuffix><i class="fa fa-rupee"></i></mat-icon>
         </mat-form-field>
       </div>
