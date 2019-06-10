@@ -29,14 +29,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
     this.formControl = this.fB.group({
-      displayPic: [''],
-      Country: [''],
-      State: [''],
-      PhoneNumber: [''],
-      Username: [''],
-      fLine: [''],
-      lLine: [''],
-      pCode: [''],
+      displayPic: [null],
+      Country: [null],
+      State: [null],
+      PhoneNumber: [null],
+      Username: [null],
+      fLine: [null],
+      lLine: [null],
+      pCode: [null],
 
 
     })
@@ -80,28 +80,28 @@ export class ProfileComponent implements OnInit {
 
     const fd = new FormData();
 
-    if (this.formControl.value.fLine !== null || this.formControl.value.fLine !== undefined) {
+    if (this.formControl.value.fLine !== null && this.formControl.value.fLine !== undefined) {
       let fLine = this.formControl.value.fLine;
       fLine = fLine.concat(', ' + this.formControl.value.lLine);
       this.appUser.Address = fLine;
       this.userUpload = true;
     }
 
-    if (this.formControl.value.PhoneNumber !== null || this.formControl.value.PhoneNumber !== undefined) {
+    if (this.formControl.value.PhoneNumber !== null && this.formControl.value.PhoneNumber !== undefined) {
       this.appUser.PhoneNumber = this.formControl.value.PhoneNumber;
       this.userUpload = true;
     }
 
-    if (this.formControl.value.Username !== null || this.formControl.value.Username !== undefined) {
+    if (this.formControl.value.Username !== null && this.formControl.value.Username !== undefined) {
       this.appUser.Username = this.formControl.value.Username;
       this.userUpload = true;
     }
 
-    if (this.formControl.value.Country !== null || this.formControl.value.Country !== undefined) {
+    if (this.formControl.value.Country !== null && this.formControl.value.Country !== undefined) {
       this.appUser.Country = this.formControl.value.Country;
     }
 
-    if (this.formControl.value.State !== null || this.formControl.value.State !== undefined) {
+    if (this.formControl.value.State !== null && this.formControl.value.State !== undefined) {
       this.appUser.State = this.formControl.value.State;
       this.userUpload = true;
     }
