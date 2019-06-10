@@ -27,7 +27,7 @@ Router.post('', (req, res) => {
         ServiceName: req.body.ServiceName,
         serviceType : req.body.serviceType,
         isCompleted: false,
-        charges:req.body.charges;
+        charges:req.body.charges
     });
 
     gService.genericSave(newService, req, res)
