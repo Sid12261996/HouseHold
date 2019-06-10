@@ -11,6 +11,7 @@ var RegisteredUser = new schema( {
      Address:  {type:String,minlength:3},
      State:  {type:String,minlength:1},
      Country:  {type:String},
-     Role:{type:String}
+     Role:{type:String},
+    ImageUrl:{type:String}
 });
     module.exports= mongoose.model( 'Users',RegisteredUser,'RegisteredUser');

@@ -77,9 +77,13 @@ Router.post('/Register', (req, res) => {
                             PhoneNumber: req.body.PhoneNumber,
                             State: req.body.State,
                             Country: req.body.Country,
-                            Role: req.body.Role || 'Customer'
-                        });
+                            Role: req.body.Role || 'Customer',
 
+                            ImageUrl:'https://householdapi.herokuapp.com/App/ProfilePic/default-user.png',
+                            Address:req.body.Address
+
+                        });
+console.log(RegisterUser);
                     RegisterUser.save().then(result => {
 
                         res.json({message: 'Successfully Saved', result});
