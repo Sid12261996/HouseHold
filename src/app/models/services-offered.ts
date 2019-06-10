@@ -1,4 +1,5 @@
 import {ServiceTypes} from './service-types.enum';
+import {UserService} from '../services/user-service.service';
 
 export class ServicesOffered {
   _id: string;
@@ -9,9 +10,10 @@ export class ServicesOffered {
   serviceType: ServiceTypes;
   isCompleted: Boolean;
   status: string;
+  charges: Number;
 
   mapper(data: ServicesOffered[]): ServicesOffered[] {
-    for (let element of data) {
+    for (const element of data) {
       element.DateOfService = new Date(element.DateOfService).toDateString();
       element.BookingDate = new Date(element.BookingDate).toDateString();
       if (element.isCompleted) {
@@ -22,4 +24,6 @@ export class ServicesOffered {
     }
     return data;
   }
+
+
 }

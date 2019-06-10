@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
 
 
 
-  currentUser$ = this.userService.CurrentUser;
-
 
   ngOnInit() {
   }
@@ -34,6 +32,10 @@ export class NavbarComponent implements OnInit {
     // dialogConfig.height = "900px";
     this.dialog.open(RegisterComponent);
 
+  }
+
+  get username():string{
+    return this.userService.CurrentUser.Username;
   }
 
   LoginPopUp() {

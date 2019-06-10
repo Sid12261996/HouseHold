@@ -20,7 +20,6 @@ export class UserService {
   constructor(private http: HttpClient, private security: SecurityService) {
   }
 
-  private currentUser: AppUser;
 
   get CurrentUser() {
     return this.security.SecurityObject.user;
@@ -83,7 +82,7 @@ export class UserService {
   User(user: AppUserWithAuth, guard = false) {
 
     const condition = guard ? user.Role : user.user.Role
-    console.log(condition, 'I am from role');
+
     switch (condition) {
       case 'Admin':
         this.Admin(user, guard);
@@ -127,6 +126,19 @@ export class UserService {
   public getCountry(): Observable<JsonPipe> {
     return this.http.get<JsonPipe>(this.countryApi)
       ;
+  }
+
+  public profileUpdate(data): Observable<any> {
+    const id = this.CurrentUser._id;
+    return this.http.put(`${this.Url}user/${id}`, data);
+  }
+
+  public displayPicUpdate(data): Observable<any> {
+    return this.http.post(this.Url + 'upload', data);
+  }
+
+  public getUser(id): Observable<any> {
+    return this.http.get(`${this.Url}user/${id}`);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -1,7 +1,9 @@
 const express = require('express'),
 app = express(),
-path = require('path');
+path = require('path'),
+cors= require('cors');
 
+app.use(cors());
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "https://wraapitup.herokuapp.com/api/getall");
     res.header(

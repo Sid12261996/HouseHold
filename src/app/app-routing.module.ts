@@ -11,13 +11,14 @@ import {ContactUsComponent} from './components/contact-us/contact-us.component';
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 import {CareersComponent} from "./components/careers/careers.component";
 import {FeesNchargesComponent} from "./components/fees-ncharges/fees-ncharges.component";
+import {ResolverService} from "./services/resolver.service";
 
 const routes: Routes = [
 
   {path: 'register', component: RegisterComponent},
   {path: 'log-in', component: LoginComponent},
 
-  {path: 'Profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
+  {path: 'Profile', component: ProfileComponent, canActivate: [AuthGuardGuard], resolve: {user: ResolverService}},
   {path: 'contactus', component: ContactUsComponent},
   {path: 'aboutus', component: AboutUsComponent},
   {path: 'careers', component: CareersComponent},

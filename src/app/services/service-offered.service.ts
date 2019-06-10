@@ -29,4 +29,8 @@ export class ServiceOfferedService {
     return this.http.put<any>(this.sUrl + id, update);
   }
 
+  postServices(service: ServicesOffered): Observable<ServicesOffered> {
+    return this.http.post<ServicesOffered>(this.sUrl, service);
+  }
+
 }

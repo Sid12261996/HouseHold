@@ -8,7 +8,7 @@
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav register" (click)="RegisterPopUp()">Register</button>
       <button *ngIf="!UserIn()" mat-flat-button routerLink="" class="nav login" (click)="LoginPopUp()">LogIn</button>
     <button *ngIf="UserIn()" mat-flat-button routerLink="" class="nav logout" (click)="Logout()">LogOut</button>
-    <button *ngIf="UserIn()" mat-flat-button [routerLink]="['Profile']" class="nav profile">Profile</button>
+    <button *ngIf="UserIn()" mat-flat-button [routerLink]="['Profile']" class="nav profile">Hi, {{username}}</button>
 
   </mat-toolbar-row>
 </mat-toolbar>
