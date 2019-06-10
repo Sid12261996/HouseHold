@@ -29,7 +29,8 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.2.3",
-    "mongoose": "^5.4.22"
+    "mongoose": "^5.4.22",
+    "multer": "^1.4.1"
   },
   "env": {
     "MongoUrl": "mongodb+srv://Sidharth:RapItUp@cluster0-jls4z.azure.mongodb.net/HouseholdsDatabase?retryWrites=true",

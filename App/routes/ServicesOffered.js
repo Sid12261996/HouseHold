@@ -26,7 +26,8 @@ Router.post('', (req, res) => {
         DateOfService: new Date(req.body.DateOfService),
         ServiceName: req.body.ServiceName,
         serviceType : req.body.serviceType,
-        isCompleted: false
+        isCompleted: false,
+        charges:req.body.charges;
     });
 
     gService.genericSave(newService, req, res)

@@ -8,7 +8,8 @@ const Services = new schema({
     DateOfService: {type: schema.Types.Date, required: true},
     BookingDate: {type: schema.Types.Date, required: true},
         serviceType: {type: String, required: true},
-    isCompleted: {type: Boolean, default: false}
+    isCompleted: {type: Boolean, default: false},
+    charges:{type:Number,default: 0}
 
 });
 

@@ -3,13 +3,54 @@ const Users = require('../../Models/AppUser'),
     mongoose = require('mongoose'),
     jwt = require('jsonwebtoken'),
     bcrypt = require('bcrypt'),
-    deleteUser = require('../genericFunctions/genericFunctions');
+    deleteUser = require('../genericFunctions/genericFunctions'),
+    multer = require('multer'),
+path=require('path');
 let JwtKey = require('../../nodemon.json').env.jwtKey;
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './App/ProfilePic')
+    },
+    filename: (req, file, cb) => {
+        console.log(req.hasOwnProperty());
+        let text = '';
+        const length = 10;
+        const possible = 'ABwertgvvdrc445sgf44fC';
+
+        for (let i = 0; i < length; i++) {
+
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        }
+        cb(null, text + '.jpg')
+    }
+})
+const filefilter = (req,file,cb)=>{
+    console.log(file.mimeType)
+    if(file.mimeType =='image/png'||file.mimeType=='image/jpeg'||file.mimeType=='image/jpg'){
+        cb(null,true);
+    }else {
+        cb(new Error('file extension is not png or jpeg/jpg'),false);
+    }
+}
+const profileUpload = multer({storage:storage,limits:{fileSize:1024*1024*10}});
+
 console.log(JwtKey);
 if (!JwtKey) {
 
     JwtKey = process.env.JwtKey;
 }
+
+Router.put('/Profile', profileUpload.single('displayPic'), (req, res) => {
+    sample = {};
+    sample['file'] = req.file;
+
+   // console.log(path.join('localhost:3000/',  sample['file'].path),sample);
+    imgUrl = path.join('https://householdapi.herokuapp.com/',  sample['file'].path);
+    console.log(imgUrl)
+    deleteUser.genericUpdate(Users,req,res,true,imgUrl)
+
+});
 //api/User/Register
 Router.post('/Register', (req, res) => {
 
@@ -103,13 +144,13 @@ Router.get('/GetByEmail', (req, res) => {
 
 //api/User/:id
 Router.delete('/:id', (req, res) => {
-   deleteUser.genericDeletion(Users, req, res)
+    deleteUser.genericDeletion(Users, req, res)
 
 
 })
 
 //api/User/:id
-Router.put('/:id',(req,res)=>{
-    deleteUser.genericUpdate(Users,req,res)
+Router.put('/:id', (req, res) => {
+    deleteUser.genericUpdate(Users, req, res)
 });
 module.exports = Router;

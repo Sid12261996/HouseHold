@@ -39,13 +39,18 @@ exports.genericDeletion = function (repo, req, res) {
 }
 
 
-exports.genericUpdate = function (repo,req, res) {
-    const id = req.params.id;
+exports.genericUpdate = function (repo,req, res,image=false,imgUrl=null) {
+    const id = req.body.id;
     const updateOps = {};
     let iter = req.body;
     for (let ele of Object.keys(iter)) {
         updateOps[ele] = iter[ele];
     }
+    if(image){
+        updateOps['ImageUrl'] = imgUrl;
+    }
+
+    console.log(updateOps)
     repo.findOneAndUpdate({_id: id}, {$set: updateOps})
         .exec()
         .then(result => {

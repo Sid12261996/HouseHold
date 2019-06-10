@@ -11,7 +11,8 @@ getAll = require('./routes/getAll'),
 TokenVerification=require('../App/AuthVerify/AuthVerify'),
     feedBack = require('./routes/feedBack'),
     workerService = require('./routes/workService'),
-    serviceOffered = require('./routes/ServicesOffered')
+    serviceOffered = require('./routes/ServicesOffered'),
+path = require('path');
 ;
 app.use(cors());
 
@@ -21,11 +22,13 @@ app.use(cors());
 mongoose.connect(Url||process.env.MongoUrl,{useNewUrlParser:true});
 mongoose.Promise = global.Promise;
 
-
+app.use('/app/profilepic',express.static(path.join(__dirname + '/ProfilePic/')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/Api/getAll',TokenVerification,getAll);
 app.use('/Api/User',User);
+console.log(path.join(__dirname + '/ProfilePic'))
+
 app.use('/Api/protected',TokenVerification,User);
 app.use('/Api/feedBack',feedBack);
 app.use('/Api/worker',TokenVerification,workerService);
