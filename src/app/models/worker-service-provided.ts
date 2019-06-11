@@ -1,7 +1,8 @@
 export class WorkerServiceProvided {
-  _id:,
-  ServiceName:,
-  UserId:,
-  serviceDueOn:,
-  BookedOn:,
-  userServiceId:,
+  _id: string;
+  ServiceName: string;
+  UserId: string;
+  serviceDueOn: Date;
+  BookedOn: Date;
+  userServiceId: string;
+}

@@ -7,19 +7,19 @@
     </div>
     <div class="row mt-2">
       <div class="col-md-3 text-center">
-        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">
-          <mat-card-header>
-          </mat-card-header>
-          <img mat-card-image src="../../../../assets/services.png" alt="Services" class="imgsize">
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" [routerLink]="['Services']" >EXPLORE</button>
-          </mat-card-actions>
-        </mat-card>
+<!--        <mat-card *ngIf="Role.Worker||Role.Admin" class="example-card">-->
+<!--          <mat-card-header>-->
+<!--          </mat-card-header>-->
+<!--          <img mat-card-image src="../../../../assets/services.png" alt="Services" class="imgsize">-->
+<!--          <mat-card-content>-->
+<!--            <p>-->
+<!--              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+<!--            </p>-->
+<!--          </mat-card-content>-->
+<!--          <mat-card-actions>-->
+<!--            <button mat-raised-button color="primary" [routerLink]="['Services']" >Worker Service selection</button>-->
+<!--          </mat-card-actions>-->
+<!--        </mat-card>-->
         <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
           <mat-card-header>
           </mat-card-header>
@@ -45,7 +45,7 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" [routerLink]="['History']">YOUR PAST SERVICES</button>
+          <button mat-raised-button color="primary" [routerLink]="['History']">Service History</button>
         </mat-card-actions>
       </mat-card>
         <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
@@ -101,7 +101,7 @@
               </p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="['Status']">SERVICE STATUS</button>
+              <button mat-raised-button color="primary" [routerLink]="['Status']">Accept Service</button>
             </mat-card-actions>
           </mat-card>
         <mat-card *ngIf="Role.Customer||Role.Admin" class="example-card">
