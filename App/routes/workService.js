@@ -14,6 +14,13 @@ Router.get('/:id', (req, res) => {
     worker.genericFindById(workerService,req,res);
 });
 
+Router.get('/:UserId', (req, res) => {
+    worker.genericFind(workerService, req, res, {UserId: req.params.UserId});
+});
+
+// Router.get('/accepted/:UserId',(req,res)=>{
+//     worker.genericFind(workerService,req,res,{$and:[{UserId:req.params.UserId},{isCompleted:'false'}]})
+// })
 Router.post('', (req, res) => {
     var newWorker = new workerService({
         _id:mongoose.Types.ObjectId(),
