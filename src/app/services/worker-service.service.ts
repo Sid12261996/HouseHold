@@ -13,9 +13,7 @@ export class WorkerServiceService {
   constructor(private http: HttpClient, private user: UserService) {
   }
   Url = Url + 'worker';
-getWorkerService(id):Observable<any>{
-  return
-}
+
 
   getAllservicesForUser(): Observable<ServicesOffered[]> {
     const Id = this.user.CurrentUser._id;
