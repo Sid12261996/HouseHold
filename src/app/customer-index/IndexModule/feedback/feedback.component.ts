@@ -18,7 +18,23 @@ export class FeedbackComponent implements OnInit {
   }
 
   formControl: FormGroup;
-feedBackModel :Feedback;
+  feedBackModel: Feedback;
+  t = {
+    smileyCondition0: false,
+    smileyCondition1: false,
+    smileyCondition2: false,
+    smileyCondition3: false,
+    smileyCondition4: false
+  }
+
+  smileyCondition(val) {
+    for (let i = 0; i <=4; i++) {
+      this.t['smileyCondition' + i] = false;
+    }
+    this.t['smileyCondition' + val] = true;
+  }
+
+
   ngOnInit() {
     this.formControl = this.fb.group({
       title: ['', Validators.required],

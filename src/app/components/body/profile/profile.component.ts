@@ -13,18 +13,26 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  private country$: string[];
-  private States: string[];
 
   constructor(private user: UserService, private fB: FormBuilder, private countryService: CountryService,
               private snackBar: MatSnackBar, private route: ActivatedRoute) {
     this.user$ = this.route.snapshot.data['user'].services;
     console.log(this.user$);
   }
+  private country$: string[];
+  private States: string[];
 
   edit: boolean = false;
   formControl: FormGroup;
   user$: AppUser;
+
+  step = -1;
+
+  Image: File = null;
+  private imageUpload = false;
+
+  appUser: AppUser = new AppUser();
+  userUpload = false;
 
   ngOnInit() {
 
@@ -49,8 +57,6 @@ export class ProfileComponent implements OnInit {
     this.edit = true;
   }
 
-  step = -1;
-
   setStep(index: number) {
     this.step = index;
   }
@@ -63,17 +69,11 @@ export class ProfileComponent implements OnInit {
     this.step--;
   }
 
-  Image: File = null;
-  private imageUpload = false;
-
   onFileChange(event) {
     this.imageUpload = true;
     this.Image = <File>event.target.files[0];
 
   }
-
-  appUser: AppUser = new AppUser();
-  userUpload = false;
 
   onSubmit() {
     console.log(this.formControl.value);
@@ -149,14 +149,12 @@ export class ProfileComponent implements OnInit {
 
 
   state(): void {
-    // tslint:disable-next-line:prefer-const
-    let SelectedcountryName = this.formControl.value.Country;
+    const SelectedcountryName = this.formControl.value.Country;
     if (SelectedcountryName != null && SelectedcountryName !== undefined) {
 
       const AllState = this.countryService.getState();
       const index = this.country$.indexOf(SelectedcountryName);
-      // tslint:disable-next-line:prefer-const
-      let states = AllState[index + 1].split('|');
+      const states = AllState[index + 1].split('|');
       this.States = states;
     }
   }

@@ -1,4 +1,4 @@
-import {ServiceTypes} from "./service-types.enum";
+import {ServiceTypes} from './service-types.enum';
 
 export class Charges {
 

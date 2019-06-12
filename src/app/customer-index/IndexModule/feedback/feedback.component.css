@@ -35,7 +35,23 @@ mat-radio-button {
 .laugh:hover{
     color: green;
 }
-.radio-img  > input { 
+
+.angry1{
+  color: red;
+}
+.frown1{
+  color: orange;
+}
+.meh1{
+  color: yellow;
+}
+.smile1{
+  color: lightgreen;
+}
+.laugh1{
+  color: green;
+}
+.radio-img  > input {
     display:none;
 }
 .radio-img  > i{

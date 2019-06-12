@@ -22,24 +22,24 @@
         </mat-form-field>
         <mat-radio-group aria-label="Select an option" class="mt-3" >
           <label class="ml-2 mr-2 radio-img" for="angry">
-            <i class='fas fa-angry angry' id="angry2" style='font-size:40px'></i>
-            <input type="radio"  formControlName="rating" value="1" id="angry" class="hideRadio">
+            <i class='fas fa-angry angry' [ngClass]="{angry1:t.smileyCondition0}" id="angry2" style='font-size:40px'></i>
+            <input type="radio" (click)="smileyCondition(0)" formControlName="rating" value="1" id="angry" class="hideRadio">
           </label>
           <label class="ml-2 mr-2 radio-img">
-            <i class='fas fa-frown frown' style='font-size:40px'></i>
-            <input type="radio"  formControlName="rating" value="2" id="" class="hideRadio">
+            <i class='fas fa-frown frown'  [ngClass]="{frown1:t.smileyCondition1}" style='font-size:40px'></i>
+            <input type="radio" (click)="smileyCondition(1)" formControlName="rating" value="2" id="" class="hideRadio">
           </label>
           <label class="ml-2 mr-2 radio-img">
-            <i class='fas fa-meh meh' style='font-size:40px'></i>
-            <input type="radio"  formControlName="rating" value="3" id="" class="hideRadio">
+            <i class='fas fa-meh meh' [ngClass]="{meh1:t.smileyCondition2}" style='font-size:40px'></i>
+            <input type="radio" (click)="smileyCondition(2)" formControlName="rating" value="3" id="" class="hideRadio">
           </label>
           <label class="ml-2 mr-2 radio-img">
-            <i class='fas fa-smile smile' style='font-size:40px'></i>
-            <input type="radio"  formControlName="rating" value="4" id="" class="hideRadio">
+            <i class='fas fa-smile smile' [ngClass]="{smile1:t.smileyCondition3}" style='font-size:40px'></i>
+            <input type="radio" (click)="smileyCondition(3)" formControlName="rating" value="4" id="" class="hideRadio">
           </label>
           <label class="ml-2 mr-2 radio-img">
-            <i class='fas fa-laugh laugh' style='font-size:40px'></i>
-            <input type="radio"  formControlName="rating" value="5" id="" class="hideRadio">
+            <i class='fas fa-laugh laugh' [ngClass]="{laugh1:t.smileyCondition4}" style='font-size:40px'></i>
+            <input type="radio" (click)="smileyCondition(4)" formControlName="rating" value="5" id="" class="hideRadio">
           </label>
         </mat-radio-group>
         <mat-form-field class="mt-4">
