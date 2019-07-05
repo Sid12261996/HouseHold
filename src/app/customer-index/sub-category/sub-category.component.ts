@@ -43,10 +43,13 @@ export class SubCategoryComponent implements OnInit {
     service = {...service, ...this.formControl.value};
     console.log(service, 'onlyDate-', onlyDate, 'time-', date);
     this.serve.postServices(service).subscribe(data => {
-      console.log(data);
-      this.loc.back();
-      this.loc.back();
-    });
+        console.log(data);
+        this.loc.back();
+        this.loc.back();
+      },
+      error1 => {
+        console.error(error1);
+      });
   }
 
   ChargeCalc() {
@@ -56,7 +59,7 @@ export class SubCategoryComponent implements OnInit {
     let type = t.mapService(this.formControl.value.ServiceName);
     const amount = charge.CalculateChargeforAll(type, 3);
     this.formControl.patchValue({
-      charges: [amount]
+      charges: amount
     });
   }
 }

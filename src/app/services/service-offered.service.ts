@@ -14,6 +14,7 @@ export class ServiceOfferedService {
   }
 
   sUrl = Url + 'service/';
+  Id = this.user.CurrentUser._id;
 
   getAllservicesForUser(): Observable<ServicesOffered[]> {
     const Id = this.user.CurrentUser._id;
@@ -30,7 +31,7 @@ export class ServiceOfferedService {
   }
 
   postServices(service: ServicesOffered): Observable<ServicesOffered> {
-    return this.http.post<ServicesOffered>(this.sUrl, service);
+    return this.http.post<ServicesOffered>(this.sUrl+'/create', service);
   }
 
 }
