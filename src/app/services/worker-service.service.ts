@@ -12,7 +12,7 @@ export class WorkerServiceService {
 
   constructor(private http: HttpClient, private user: UserService) {
   }
-  Url = Url + 'worker';
+  Url = Url + 'worker/';
 
 
   getAllservicesForUser(): Observable<ServicesOffered[]> {
