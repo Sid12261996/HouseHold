@@ -16,7 +16,7 @@ Router.get('/pending/:UserId',(req,res)=>{
     gService.genericFind(servicesOffered,req,res,{$and:[{UserId:req.params.UserId},{isCompleted:'false'}]})
 })
 
-Router.post('', (req, res) => {
+Router.post('/create', (req, res) => {
 
 
     var newService = new servicesOffered({
